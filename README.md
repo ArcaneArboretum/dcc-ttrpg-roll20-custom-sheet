@@ -9,4 +9,4 @@ The sheet does not currently have rolltemplates hooked up to all of the stats, s
 
 This is a solo project, and I am still learning how to code in HTML/CSS/JavaScript, so please excuse any weird or non-standard design patterns / architectures. I have lots of prior programming experience, but NONE in HTML/CSS/JavaScript.
 
-If you're interested in using this sheet yourself, copy sheet_compiled.html into the Roll20 custom sheet 'HTML Layout' tab on the Campaign Settings Page after selecting "Character Sheet Template" -> "Custom". Then copy the sheet.css contents into the CSS Styling tab. Click Save Changes, and you should be able to see the sheet render in your game.
+If you're interested in using this sheet yourself, download the repo, run build_sheet.py (using the provided build_sheet.bat or manually), then copy the output sheet_compiled.html into the Roll20 custom sheet 'HTML Layout' tab on the Campaign Settings Page after selecting "Character Sheet Template" -> "Custom". Then copy the sheet.css contents into the CSS Styling tab. Click Save Changes, and you should be able to see the sheet render in your game.
