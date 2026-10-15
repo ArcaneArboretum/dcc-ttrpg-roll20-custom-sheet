@@ -20,43 +20,43 @@
       <label class="emblem narrow"> <!-- Player Killer Skulls -->
         <span class="crawler-killer-skull red"></span>
         <input type="number" name="attr_crawler_kills" value="0" readonly>
-      </label> <!-- ./ Player Killer -->
+      </label><!-- end Player Killer -->
 
       <input name="attr_display_fourth_floor" type="hidden" class="visibility-toggle" value=""/>
       <label class="emblem narrow"> <!-- Gold Player Killer Skulls -->
         <span class="crawler-killer-skull gold"></span>
         <input type="number" name="attr_crawler_top_10_kills" value="0" readonly>
-      </label> <!-- ./ Gold Player Killer -->
+      </label><!-- end Gold Player Killer -->
 
       <label class="emblem narrow"> <!-- Bronze Boss -->
         <span class="boss-star bronze"></span>
         <input type="number" name="attr_neighborhood_boss_kills" value="0" readonly>
-      </label> <!-- ./ Bronze Boss -->
+      </label><!-- end Bronze Boss -->
 
       <label class="emblem narrow"> <!-- Silver Boss -->
         <span class="boss-star silver"></span>
         <input type="number" name="attr_borough_boss_kills" value="0" readonly>
-      </label> <!-- ./ Silver Boss -->
+      </label><!-- end Silver Boss -->
 
       <label class="emblem narrow"> <!-- Gold Boss -->
         <span class="boss-star gold"></span>
         <input type="number" name="attr_city_boss_kills" value="0" readonly>
-      </label> <!-- ./ Gold Boss -->
+      </label><!-- end Gold Boss -->
 
       <label class="emblem narrow"> <!-- Platinum Boss -->
         <span class="boss-star platinum"></span>
         <input type="number" name="attr_province_boss_kills" value="0" readonly>
-      </label> <!-- ./ Platinum Boss -->
+      </label><!-- end Platinum Boss -->
 
       <label class="emblem narrow"> <!-- Legendary Boss -->
         <span class="boss-star legendary"></span>
         <input type="number" name="attr_country_boss_kills" value="0" readonly>
-      </label> <!-- ./ Legendary Boss -->
+      </label><!-- end Legendary Boss -->
 
       <label class="emblem narrow"> <!-- Celestial Boss -->
         <span class="boss-star celestial"></span>
         <input type="number" name="attr_floor_boss_kills" value="0" readonly>
-      </label> <!-- ./ Celestial Boss -->
+      </label><!-- end Celestial Boss -->
       
       <input name="attr_display_sixth_floor" type="hidden" class="visibility-toggle" value=""/>
       <label class="emblem narrow"> <!-- Hunter Daggers -->
@@ -868,7 +868,7 @@
                       </div>
                     </fieldset>
                   </div>
-                </div> <!-- ./actions -->
+                </div> <!-- end actions -->
                 <div class="stacked standard-spacing"> <!-- Interrupts -->
                   <div class="side-by-side">
                     <span class="section-label">Interrupts</span>
@@ -908,9 +908,9 @@
                       </div>
                     </fieldset>
                   </div>
-                </div> <!-- ./interrupts -->
-              </div> <!--./Actions / Interrupts-->
-            </div> <!--./Actions in Combat -->
+                </div> <!-- end interrupts -->
+              </div> <!-- end Actions / Interrupts-->
+            </div> <!-- end Actions in Combat -->
             
             
           </div> <!-- end of right column -->
@@ -923,7 +923,7 @@
             <span class="section-label">Attacks</span>
             <div class="inline">
               <fieldset class="repeating_attacks">
-                <div class="stacked section-container collapsible-section no-margin"> <!-- Attack Row -->
+                <div class="stacked section-container collapsible-section no-margin stretch-width"> <!-- Attack Row -->
                   <div class="side-by-side standard-spacing"> <!-- Attack Details -->
                     <label class="field max"><input type="text" name="attr_attack_name"><span class="header-label">Name</span></label>
                     <label class="field narrow"><input type="number" name="attr_attack_rank"><span class="header-label">Rank</span></label>
@@ -939,67 +939,75 @@
                     </label>
                     <label class="field narrow"><input type="number" name="attr_attack_ai_favor" value="0"><span class="header-label">AI Favor</span></label>
                     <label class="field narrow"><input type="number" name="attr_attack_grinding_hours" value="0"><span class="header-label">Grind</span></label>
-                    <input type="checkbox" name="attr_attack_ready_for_advancement" class="advancement-check" value="1"/>
-                    <button type="roll" class="small-roll"value="&{template:advancement} {{character=@{character_name}}} {{name=@{attack_name}}} {{rank=@{attack_rank}} {{roll=[[1d20]]}}"></button>
+                    <input type="checkbox" name="attr_attack_ready_for_advancement" class="advancement-check narrow" value="1"/>
+                    <button type="roll" class="small-roll narrow" value="&{template:advancement} {{character=@{character_name}}} {{name=@{attack_name}}} {{rank=@{attack_rank}} {{roll=[[1d20]]}}">Advance</button>
                     <div class="toggle-label narrow">
                         <input type="checkbox" name="attr_collapse_attack" class="toggle-checkbox" value="1" />
                         <span class="icon-collapsed">▶</span>
                         <span class="icon-expanded">▼</span>
                     </div>
-                  </div> <!--./Attack Details-->
+                  </div> <!-- end Attack Details-->
 
                   <!-- collapsible section -->
                   <input type="hidden" class="visibility-toggle" name="attr_collapse_attack" value=""/>
-                  <div class="stacked">
-                    <!-- for all attacks display a description section -->
-                    <div class="side-by-side standard-spacing"> <!-- All Attacks -->
-                      <label class="field grow"><input type="text" name="attr_attack_targets_range"><span class="header-label">Targets and Range</span></label>
-                      <label class="field narrow"><input type="text" name="attr_attack_cooldown"><span class="header-label">Cooldown</span></label>
-                      <label class="field double-wide"><input type="text" name="attr_attack_description"><span class="header-label">Description</span></label>
-                    </div>
-
-                    <div class="side-by-side standard-spacing"> <!-- To Hit and Damage -->
-                      <div class="stacked"> <!-- stack To Hit and Damage in 2 rows -->
-                        <div class="side-by-side"> <!-- To Hit -->
-                          <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[1d20 + @{attack_to_hit_mod} + @{attack_to_hit_bonus} + @{attack_rank}]]}}">To Hit</button>
-                          <div class="side-by-side standard-spacing">
-                            <label class="field wide">
-                              <select name="attr_attack_to_hit_stat">
-                                <option value="strength">Strength</option>
-                                <option value="intelligence">Intelligence</option>
-                                <option value="constitution">Constitution</option>
-                                <option value="dexterity">Dexterity</option>
-                                <option value="charisma">Charisma</option>
-                                <option value="none">None</option>
-                              </select>
-                              <span class="header-label">Stat</span>
-                            </label>
-                            <label class="field narrow"><input type="number" name="attr_attack_to_hit_mod" readonly><span class="header-label">Mod</span></label>
-                            <label class="field narrow"><input type="text" name="attr_attack_to_hit_bonus"><span class="header-label">Bonus</span></label>
-                            <label class="field narrow"><input type="number" name="attr_attack_rank" readonly><span class="header-label">Rank</span></label>
-                          </div>
-                        </div> <!--./To-Hit-->
-                        <div class="side-by-side standard-spacing"> <!-- Damage -->
-                          <button type="roll" class="small-roll narrow" name="roll_damage" value="&{template:damage} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[@{attack_damage_base} + @{attack_damage_bonus} + @{attack_damage_mod}]]}}">Damage</button>
-                          <label class="field narrow"><input type="text" name="attr_attack_damage_base"><span class="header-label">Base Dmg</span></label>
-                          <label class="field medium"><input type="text" name="attr_attack_damage_type"><span class="header-label">Type</span></label>
-                          <label class="field medium">
-                              <select name="attr_attack_damage_stat">
-                                <option value="strength">Strength</option>
-                                <option value="intelligence">Intelligence</option>
-                                <option value="constitution">Constitution</option>
-                                <option value="dexterity">Dexterity</option>
-                                <option value="charisma">Charisma</option>
-                                <option value="none">None</option>
-                              </select>
-                              <span class="header-label">Stat</span>
-                            </label>
-                          <label class="field narrow"><input type="number" name="attr_attack_damage_mod" readonly><span class="header-label">Mod</span></label>
-                          <label class="field narrow"><input type="text" name="attr_attack_damage_bonus"><span class="header-label">Bonus</span></label>
-                          <label class="field grow"><input type="text" name="attr_attack_damage_effects"><span class="header-label">Effects</span></label>
-                        </div> <!--./Damage-->
+                  <div class="stacked stretch-width standard-spacing">
+                    <div class="stacked stretch-width standard-spacing"> <!-- description section -->
+                      <div class="side-by-side standard-spacing">
+                        <label class="field grow"><input type="text" name="attr_attack_targets_range"><span class="header-label">Targets and Range</span></label>
+                        <label class="field narrow"><input type="text" name="attr_attack_cooldown"><span class="header-label">Cooldown</span></label>
+                        <label class="field wide"><input type="text" name="attr_attack_description"><span class="header-label">Short Description</span></label>
                       </div>
-                    </div>
+                      <div class="stacked standard-spacing stretch-width collapsible-section no-margin"> <!-- full description -->
+                        <div class="side-by-side">
+                          <input type="checkbox" name="attr_collapse_attack_description" class="toggle-checkbox" value="1" />
+                          <div class="toggle-label">
+                              <span class="sub-label">Full Description</span>
+                              <span class="icon-collapsed">▶</span>
+                              <span class="icon-expanded">▼</span>
+                          </div>
+                        </div>
+                      
+                        <input type="hidden" name="attr_collapse_attack_description" class="visibility-toggle" value="" />
+                        <textarea class="general-text" name="attr_attack_full_description" placeholder="Describe your attack, if it's anything more interesting than just poking them with the pointy end."></textarea>
+                      </div> <!-- end full description -->
+                    </div> <!-- end description section -->
+
+                    <div class="side-by-side standard-spacing"> <!-- To Hit -->
+                      <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[1d20 + @{attack_to_hit_mod} + @{attack_to_hit_bonus} + @{attack_rank}]]}}">To Hit</button>
+                        <label class="field wide">
+                          <select name="attr_attack_to_hit_stat">
+                            <option value="strength">Strength</option>
+                            <option value="intelligence">Intelligence</option>
+                            <option value="constitution">Constitution</option>
+                            <option value="dexterity">Dexterity</option>
+                            <option value="charisma">Charisma</option>
+                            <option value="none">None</option>
+                          </select>
+                          <span class="header-label">Stat</span>
+                        </label>
+                        <label class="field narrow"><input type="number" name="attr_attack_to_hit_mod" readonly><span class="header-label">Mod</span></label>
+                        <label class="field narrow"><input type="text" name="attr_attack_to_hit_bonus"><span class="header-label">Bonus</span></label>
+                        <label class="field narrow"><input type="number" name="attr_attack_rank" readonly><span class="header-label">Rank</span></label>
+                    </div> <!-- end To-Hit-->
+                    <div class="side-by-side standard-spacing"> <!-- Damage -->
+                      <button type="roll" class="small-roll narrow" name="roll_damage" value="&{template:damage} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[@{attack_damage_base} + @{attack_damage_bonus} + @{attack_damage_mod}]]}}">Damage</button>
+                      <label class="field narrow"><input type="text" name="attr_attack_damage_base"><span class="header-label">Base Dmg</span></label>
+                      <label class="field medium"><input type="text" name="attr_attack_damage_type"><span class="header-label">Type</span></label>
+                      <label class="field medium">
+                          <select name="attr_attack_damage_stat">
+                            <option value="strength">Strength</option>
+                            <option value="intelligence">Intelligence</option>
+                            <option value="constitution">Constitution</option>
+                            <option value="dexterity">Dexterity</option>
+                            <option value="charisma">Charisma</option>
+                            <option value="none">None</option>
+                          </select>
+                          <span class="header-label">Stat</span>
+                        </label>
+                      <label class="field narrow"><input type="number" name="attr_attack_damage_mod" readonly><span class="header-label">Mod</span></label>
+                      <label class="field narrow"><input type="text" name="attr_attack_damage_bonus"><span class="header-label">Bonus</span></label>
+                      <label class="field grow"><input type="text" name="attr_attack_damage_effects"><span class="header-label">Effects</span></label>
+                    </div> <!-- end Damage-->
                   </div> <!-- collapsible -->
                 </div>
               </fieldset>
@@ -1010,7 +1018,7 @@
             <span class="section-label">Spells</span>
             <div class="inline">
               <fieldset class="repeating_spells">
-                <div class="stacked section-container collapsible-section no-margin"> <!-- Spell Row -->
+                <div class="stacked section-container collapsible-section stretch-width no-margin"> <!-- Spell Row -->
                   <div class="side-by-side standard-spacing"> <!-- Spell Details -->
                     <label class="field grow"><input type="text" name="attr_spell_name"><span class="header-label">Name</span></label>
                     <label class="field narrow"><input type="number" name="attr_spell_rank"><span class="header-label">Rank</span></label>
@@ -1027,48 +1035,60 @@
                     </label>
                     <label class="field narrow"><input type="number" name="attr_spell_ai_favor" value="0"><span class="header-label">AI Favor</span></label>
                     <label class="field narrow"><input type="number" name="attr_spell_grinding_hours" value="0"><span class="header-label">Grind</span></label>
-                    <input type="checkbox" name="attr_spell_ready_for_advancement" class="advancement-check" value="1"/>
-                    <button type="roll" class="small-roll"value="&{template:advancement} {{character=@{character_name}}} {{name=@{spell_name}}} {{rank=@{spell_rank}}} {{roll=[[1d20]]}}"></button>
+                    <input type="checkbox" name="attr_spell_ready_for_advancement" class="advancement-check narrow" value="1"/>
+                    <button type="roll" class="small-roll narrow" value="&{template:advancement} {{character=@{character_name}}} {{name=@{spell_name}}} {{rank=@{spell_rank}}} {{roll=[[1d20]]}}">Advance</button>
                     <div class="toggle-label narrow">
                         <input type="checkbox" name="attr_collapse_spell" class="toggle-checkbox" value="1" />
                         <span class="icon-collapsed">▶</span>
                         <span class="icon-expanded">▼</span>
                     </div>
-                  </div> <!--./Spell Details-->
+                  </div> <!-- end Spell Details-->
 
                   <input type="hidden" name="attr_collapse_spell" class="visibility-toggle" value="" />
-                  <div class="stacked"> <!-- collapsible -->
-                    <!-- for all spells display a description section -->
-                    <div class="side-by-side standard-spacing"> <!-- All Spells -->
-                      <label class="field max"><input type="text" name="attr_spell_targets_range"><span class="header-label">Targets and Range</span></label>
-                      <label class="field narrow"><input type="text" name="attr_spell_duration"><span class="header-label">Duration</span></label>
-                      <label class="field narrow"><input type="text" name="attr_spell_cooldown"><span class="header-label">Cooldown</span></label>
-                      <label class="field wide"><input type="text" name="attr_spell_description"><span class="header-label">Description</span></label>
-                    </div>
+                  <div class="stacked stretch-width standard-spacing"> <!-- collapsible -->
+                    <div class="stacked standard-spacing stretch-width"> <!-- description section -->
+                      <div class="side-by-side standard-spacing"> <!-- description header -->
+                        <label class="field max"><input type="text" name="attr_spell_targets_range"><span class="header-label">Targets and Range</span></label>
+                        <label class="field medium"><input type="text" name="attr_spell_duration"><span class="header-label">Duration</span></label>
+                        <label class="field narrow"><input type="text" name="attr_spell_cooldown"><span class="header-label">Cooldown</span></label>
+                        <label class="field wide"><input type="text" name="attr_spell_description"><span class="header-label">Short Description</span></label>
+                      </div> <!-- end description header -->
+                      <div class="stacked standard-spacing stretch-width collapsible-section no-margin"> <!-- full description -->
+                        <div class="side-by-side">
+                          <input type="checkbox" name="attr_collapse_spell_description" class="toggle-checkbox" value="1" />
+                          <div class="toggle-label">
+                              <span class="sub-label">Full Description</span>
+                              <span class="icon-collapsed">▶</span>
+                              <span class="icon-expanded">▼</span>
+                          </div>
+                        </div>
+                      
+                        <input type="hidden" name="attr_collapse_spell_description" class="visibility-toggle" value="" />
+                        <textarea class="general-text" name="attr_spell_full_description" placeholder="Describe your spell in all it's gory, awesome detail here. Or don't. I'm not your mother."></textarea>
+                      </div> <!-- end full description -->
+                    </div> <!-- end description section -->
 
                     <!-- if spell is an attack, repeat the attack section here -->
                     <input type="hidden" name="attr_spell_type_attack" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Attack -->
-                      <div class="stacked"> <!-- stack To Hit and Damage in 2 rows -->
-                        <div class="side-by-side"> <!-- To Hit -->
+                      <div class="stacked stretch-width"> <!-- stack To Hit and Damage in 2 rows -->
+                        <div class="side-by-side standard-spacing"> <!-- To Hit -->
                           <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[1d20 + @{spell_to_hit_mod} + @{spell_to_hit_bonus} + @{spell_rank}]]}}">To Hit</button>
-                          <div class="side-by-side standard-spacing">
-                            <label class="field wide">
-                              <select name="attr_spell_to_hit_stat">
-                                <option value="strength">Strength</option>
-                                <option value="intelligence">Intelligence</option>
-                                <option value="constitution">Constitution</option>
-                                <option value="dexterity">Dexterity</option>
-                                <option value="charisma">Charisma</option>
-                                <option value="none">None</option>
-                              </select>
-                              <span class="header-label">Stat</span>
-                            </label>
-                            <label class="field narrow"><input type="number" name="attr_spell_to_hit_mod" readonly><span class="header-label">Mod</span></label>
-                            <label class="field narrow"><input type="text" name="attr_spell_to_hit_bonus"><span class="header-label">Bonus</span></label>
-                            <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
-                          </div>
-                        </div> <!--./To-Hit-->
+                          <label class="field wide">
+                            <select name="attr_spell_to_hit_stat">
+                              <option value="strength">Strength</option>
+                              <option value="intelligence" selected>Intelligence</option>
+                              <option value="constitution">Constitution</option>
+                              <option value="dexterity">Dexterity</option>
+                              <option value="charisma">Charisma</option>
+                              <option value="none">None</option>
+                            </select>
+                            <span class="header-label">Stat</span>
+                          </label>
+                          <label class="field narrow"><input type="number" name="attr_spell_to_hit_mod" readonly><span class="header-label">Mod</span></label>
+                          <label class="field narrow"><input type="text" name="attr_spell_to_hit_bonus"><span class="header-label">Bonus</span></label>
+                          <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
+                        </div> <!-- end To-Hit-->
                         <div class="side-by-side standard-spacing"> <!-- Damage -->
                           <button type="roll" class="small-roll narrow" name="roll_damage" value="&{template:damage} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[@{spell_damage_base} + @{spell_damage_bonus} + @{spell_damage_mod}]]}}">Damage</button>
                           <label class="field narrow"><input type="text" name="attr_spell_damage_base"><span class="header-label">Base Dmg</span></label>
@@ -1076,7 +1096,7 @@
                           <label class="field medium">
                               <select name="attr_spell_damage_stat">
                                 <option value="strength">Strength</option>
-                                <option value="intelligence">Intelligence</option>
+                                <option value="intelligence" selected>Intelligence</option>
                                 <option value="constitution">Constitution</option>
                                 <option value="dexterity">Dexterity</option>
                                 <option value="charisma">Charisma</option>
@@ -1087,54 +1107,62 @@
                           <label class="field narrow"><input type="number" name="attr_spell_damage_mod" readonly><span class="header-label">Mod</span></label>
                           <label class="field narrow"><input type="text" name="attr_spell_damage_bonus"><span class="header-label">Bonus</span></label>
                           <label class="field grow"><input type="text" name="attr_spell_damage_effects"><span class="header-label">Effects</span></label>
-                        </div> <!--./Damage-->
-                      </div> <!--./To Hit + Damage-->
-                    </div> <!--./Attack-->
+                        </div> <!-- end Damage-->
+                      </div> <!-- end To Hit + Damage-->
+                    </div> <!-- end Attack-->
 
                     <!-- if the spell requires a skill check, display that calculation -->
                     <input type="hidden" name="attr_spell_type_skill_check" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Skill Check -->
                       <button type="roll" class="small-roll narrow" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[1d20 + @{spell_check_mod} + @{spell_check_bonus} + @{spell_rank}]]}}">Check</button>
-                      <div class="side-by-side standard-spacing">
-                        <label class="field wide">
-                          <select name="attr_spell_check_stat">
-                            <option value="strength">Strength</option>
-                            <option value="intelligence">Intelligence</option>
-                            <option value="constitution">Constitution</option>
-                            <option value="dexterity">Dexterity</option>
-                            <option value="charisma">Charisma</option>
-                            <option value="none">None</option>
-                          </select>
-                          <span class="header-label">Stat</span>
-                        </label>
-                        <label class="field narrow"><input type="number" name="attr_spell_check_mod" readonly><span class="header-label">Mod</span></label>
-                        <label class="field narrow"><input type="text" name="attr_spell_check_bonus"><span class="header-label">Bonus</span></label>
-                        <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
-                      </div>
-                    </div> <!--./Skill Check-->
+                      <label class="field grow">
+                        <select name="attr_spell_check_stat">
+                          <option value="strength">Strength</option>
+                          <option value="intelligence" selected>Intelligence</option>
+                          <option value="constitution">Constitution</option>
+                          <option value="dexterity">Dexterity</option>
+                          <option value="charisma">Charisma</option>
+                          <option value="none">None</option>
+                        </select>
+                        <span class="header-label">Stat</span>
+                      </label>
+                      <label class="field grow">
+                        <select name="attr_spell_check_opposed_stat">
+                          <option value="unopposed" selected>Unopposed</option>
+                          <option value="strength">Strength</option>
+                          <option value="intelligence">Intelligence</option>
+                          <option value="constitution">Constitution</option>
+                          <option value="dexterity">Dexterity</option>
+                          <option value="charisma">Charisma</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <span class="header-label">Opposed By</span>
+                      </label>
+                      <label class="field narrow"><input type="number" name="attr_spell_check_mod" readonly><span class="header-label">Mod</span></label>
+                      <label class="field narrow"><input type="text" name="attr_spell_check_bonus"><span class="header-label">Bonus</span></label>
+                      <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
+                    </div> <!-- end Skill Check-->
 
                     <!-- if the spell is a healing skill, display the healing amount -->
                     <input type="hidden" name="attr_spell_type_healing" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Healing -->
                       <button type="roll" class="small-roll narrow" name="roll_healing" value="&{template:healing} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[@{spell_healing_amount}]]}}">Healing</button>
-                      <div class="side-by-side standard-spacing">
-                        <label class="field max"><input type="text" name="attr_spell_healing_amount"><span class="header-label">Base Healing</span></label>
-                        <label class="field medium">
-                          <select name="attr_spell_healing_stat">
-                            <option value="strength">Strength</option>
-                            <option value="intelligence">Intelligence</option>
-                            <option value="constitution">Constitution</option>
-                            <option value="dexterity">Dexterity</option>
-                            <option value="charisma">Charisma</option>
-                            <option value="none">None</option>
-                          </select>
-                          <span class="header-label">Stat</span>
-                        </label>
-                        <label class="field narrow"><input type="number" name="attr_spell_healing_mod" readonly><span class="header-label">Mod</span></label>
-                        <label class="field max"><input type="text" name="attr_spell_healing_effects"><span class="header-label">Effects</span></label>
-                      </div>
-                    </div> <!--./Healing-->
-                  </div>
+                      <label class="field max"><input type="text" name="attr_spell_healing_amount"><span class="header-label">Base Healing</span></label>
+                      <label class="field medium">
+                        <select name="attr_spell_healing_stat">
+                          <option value="strength">Strength</option>
+                          <option value="intelligence" selected>Intelligence</option>
+                          <option value="constitution">Constitution</option>
+                          <option value="dexterity">Dexterity</option>
+                          <option value="charisma">Charisma</option>
+                          <option value="none">None</option>
+                        </select>
+                        <span class="header-label">Stat</span>
+                      </label>
+                      <label class="field narrow"><input type="number" name="attr_spell_healing_mod" readonly><span class="header-label">Mod</span></label>
+                      <label class="field max"><input type="text" name="attr_spell_healing_effects"><span class="header-label">Effects</span></label>
+                    </div> <!-- end Healing -->
+                  </div> <!-- end outer collapsible section -->
                 </div>
               </fieldset>
             </div>
@@ -1144,15 +1172,15 @@
             <span class="section-label">Utility</span>
             <div class="inline">
               <fieldset class="repeating_skills">
-                <div class="stacked section-container collapsible-section no-margin"> <!-- Skill Row -->
+                <div class="stacked standard-spacing section-container stretch-width collapsible-section no-margin"> <!-- Skill Row -->
                   <div class="side-by-side standard-spacing"> <!-- Skill Details -->
                     <label class="field wide"><input type="text" name="attr_skill_name"><span class="header-label">Name</span></label>
                     <label class="field narrow"><input type="number" name="attr_skill_rank"><span class="header-label">Rank</span></label>
                     <label class="field medium">
                       <select name="attr_skill_type">
                         <option value="passive">Passive</option>
-                        <option value="opposed">Opposed</option>
-                        <option value="unopposed">Unopposed</option>
+                        <option value="has_check" checked>Unopposed</option>
+                        <option value="has_check">Opposed</option>
                         <option value="other">Other</option>
                       </select>
                       <span class="header-label">Type</span>
@@ -1165,70 +1193,64 @@
                         <span class="icon-collapsed">▶</span>
                         <span class="icon-expanded">▼</span>
                     </div>
-                  </div> <!--./Skill Details-->
+                  </div> <!-- end Skill Details-->
                   
                   <!-- Collapsible Section Content -->
                   <input type="hidden" class="visibility-toggle" name="attr_collapse_skill" value=""/>
-                  <div class="stacked">
-                    <div class="side-by-side standard-spacing">
-                      <label class="field narrow"><input type="text" name="attr_skill_cooldown"><span class="header-label">Cooldown</span></label>
-                      <label class="field super-wide"><input type="text" name="attr_skill_description"><span class="header-label">Description</span></label>
-                    </div>
+                  <div class="stacked stretch-width standard-spacing"> <!-- collapsible portion -->
+                    <div class="stacked stretch-width standard-spacing"> <!-- description section -->
+                      <div class="side-by-side standard-spacing">
+                        <label class="field narrow"><input type="text" name="attr_skill_cooldown"><span class="header-label">Cooldown</span></label>
+                        <label class="field super-wide"><input type="text" name="attr_skill_description"><span class="header-label">Short Description</span></label>
+                      </div>
+                      
+                      <div class="stacked standard-spacing stretch-width collapsible-section no-margin"> <!-- full description -->
+                        <div class="side-by-side">
+                          <input type="checkbox" name="attr_collapse_skill_description" class="toggle-checkbox" value="1" />
+                          <div class="toggle-label">
+                              <span class="sub-label">Full Description</span>
+                              <span class="icon-collapsed">▶</span>
+                              <span class="icon-expanded">▼</span>
+                          </div>
+                        </div>
+                      
+                        <input type="hidden" name="attr_collapse_skill_description" class="visibility-toggle" value="" />
+                        <textarea class="general-text" name="attr_skill_full_description" placeholder="Describe what your skill does when you succeed or fail at it, and any special conditions or limitations."></textarea>
+                      </div> <!-- end full description -->
+                    </div> <!-- end description section -->
                   
-                    <input type="hidden" name="attr_skill_type_unopposed" class="visibility-toggle" value="" />
-                    <div class="side-by-side standard-spacing"> <!-- Skill Check - Unopposed -->
-                      <button type="roll" class="small-roll medium" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{skill_name}}} {{roll=[[1d20 + @{skill_unopposed_check_mod} + @{skill_unopposed_check_bonus} + @{skill_rank}]]}}">Unopposed</button>
-                      <div class="side-by-side standard-spacing">
-                        <label class="field max">
-                          <select name="attr_skill_unopposed_check_stat">
-                            <option value="strength">Strength</option>
-                            <option value="intelligence">Intelligence</option>
-                            <option value="constitution">Constitution</option>
-                            <option value="dexterity">Dexterity</option>
-                            <option value="charisma">Charisma</option>
-                            <option value="none">None</option>
-                          </select>
-                          <span class="header-label">Stat</span>
-                        </label>
-                        <label class="field narrow"><input type="number" name="attr_skill_unopposed_check_mod" readonly><span class="header-label">Mod</span></label>
-                        <label class="field narrow"><input type="text" name="attr_skill_unopposed_check_bonus"><span class="header-label">Bonus</span></label>
-                        <label class="field narrow"><input type="number" name="attr_skill_rank" readonly><span class="header-label">Rank</span></label>
-                      </div>
-                    </div>
-
-                    <input type="hidden" name="attr_skill_type_opposed" class="visibility-toggle" value="" />
-                    <div class="side-by-side standard-spacing"> <!-- Skill Check - Opposed -->
-                      <button type="roll" class="small-roll medium" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{skill_name}}} {{opposedBy=@{skill_opposed_opposed_stat}}} {{roll=[[1d20 + @{skill_opposed_check_mod} + @{skill_opposed_check_bonus} + @{skill_rank}]]}}">Opposed</button>
-                      <div class="side-by-side standard-spacing">
-                        <label class="field grow">
-                          <select name="attr_skill_opposed_check_stat">
-                            <option value="strength">Strength</option>
-                            <option value="intelligence">Intelligence</option>
-                            <option value="constitution">Constitution</option>
-                            <option value="dexterity">Dexterity</option>
-                            <option value="charisma">Charisma</option>
-                            <option value="none">None</option>
-                          </select>
-                          <span class="header-label">Stat</span>
-                        </label>
-                        <label class="field grow">
-                          <select name="attr_skill_opposed_opposed_stat">
-                            <option value="strength">Strength</option>
-                            <option value="intelligence">Intelligence</option>
-                            <option value="constitution">Constitution</option>
-                            <option value="dexterity">Dexterity</option>
-                            <option value="charisma">Charisma</option>
-                            <option value="other">Other</option>
-                          </select>
-                          <span class="header-label">Opposed Stat</span>
-                        </label>
-                        <label class="field narrow"><input type="number" name="attr_skill_opposed_check_mod" readonly><span class="header-label">Mod</span></label>
-                        <label class="field narrow"><input type="text" name="attr_skill_opposed_check_bonus"><span class="header-label">Bonus</span></label>
-                        <label class="field narrow"><input type="number" name="attr_skill_rank" readonly><span class="header-label">Rank</span></label>
-                      </div>
-                    </div> <!--./Skill Check-->
-                  </div> <!-- collapsible section -->
-                </div> <!-- collapse header -->
+                    <input type="hidden" name="attr_skill_type_has_check" class="visibility-toggle" value="" />
+                    <div class="side-by-side standard-spacing"> <!-- Skill Check -->
+                      <button type="roll" class="small-roll narrow" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{skill_name}}} {{roll=[[1d20 + @{skill_check_mod} + @{skill_check_bonus} + @{skill_rank}]]}}">Check</button>
+                      <label class="field grow">
+                        <select name="attr_skill_check_stat">
+                          <option value="strength" selected>Strength</option>
+                          <option value="intelligence">Intelligence</option>
+                          <option value="constitution">Constitution</option>
+                          <option value="dexterity">Dexterity</option>
+                          <option value="charisma">Charisma</option>
+                          <option value="none">None</option>
+                        </select>
+                        <span class="header-label">Stat</span>
+                      </label>
+                      <label class="field grow">
+                        <select name="attr_skill_check_opposed_by">
+                          <option value="unopposed" selected>Unopposed</option>
+                          <option value="strength">Strength</option>
+                          <option value="intelligence">Intelligence</option>
+                          <option value="constitution">Constitution</option>
+                          <option value="dexterity">Dexterity</option>
+                          <option value="charisma">Charisma</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <span class="header-label">Stat</span>
+                      </label>
+                      <label class="field narrow"><input type="number" name="attr_skill_check_mod" readonly><span class="header-label">Mod</span></label>
+                      <label class="field narrow"><input type="text" name="attr_skill_check_bonus"><span class="header-label">Bonus</span></label>
+                      <label class="field narrow"><input type="number" name="attr_skill_rank" readonly><span class="header-label">Rank</span></label>
+                    </div> <!-- end skill check row -->
+                  </div> <!-- end collapsible portion-->
+                </div> <!-- end skill -->
               </fieldset>
             </div>
           </div> <!-- end Utility -->
@@ -1457,8 +1479,8 @@
                   </div>
                 </div> <!-- end inventory pages -->
               </div>
-            </div> <!-- ./ inventory -->
-          </div> <!-- ./ end left column -->
+            </div> <!-- end inventory -->
+          </div> <!-- end left column -->
           <div class="stacked standard-spacing section-container grow"> <!-- right column -->
             <span class="section-label">Resources</span>
             <div class="stacked"> <!-- Misc Junk -->
@@ -1475,14 +1497,14 @@
                       <span class="large-font">/</span>
                       <label class="field narrow"><input type="number" name="attr_resource_max_uses"><span class="header-label">Max</span></label>
                     </div>
-                    <label class="field "><input type="text" name="attr_resource_refresh"><span class="header-label">Refresh On</span></label>
+                    <label class="field"><input type="text" name="attr_resource_refresh"><span class="header-label">Refresh On</span></label>
                   </div>
                 </fieldset> <!--/.repeating resources-->
               </div>
-            </div> <!--./custom resources -->
-          </div> <!--./ right column -->
-        </div> <!-- ./ end page 3 layout -->
-      </div> <!-- ./ end page 3 -->
+            </div> <!-- end custom resources -->
+          </div> <!-- end right column -->
+        </div> <!-- end page 3 layout -->
+      </div> <!-- end page 3 -->
 
       <div class="page page4"> <!-- Info Tab -->
         <div class="stacked page-layout standard-spacing stretch-width"> <!-- page 4 layout -->

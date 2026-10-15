@@ -432,7 +432,6 @@ button[type="roll"]:hover::before {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 2px;
-  color: var(--black) !important;
 }
 
 .standard-label {
@@ -794,7 +793,6 @@ input[type="radio"].standard-selection {
   background-color: none;
   border: none;
   position: relative;
-  color: var(--black) !important;
   font-weight: bold;
   font-size: 12px !important;
   user-select: none;
@@ -805,7 +803,8 @@ input[type="radio"].standard-selection {
 }
 
 .toggle-checkbox:hover ~ .icon-collapsed,
-.toggle-checkbox:hover ~ .icon-expanded {
+.toggle-checkbox:hover ~ .icon-expanded,
+.toggle-checkbox:hover ~ .toggle-label {
   color: var(--red) !important;
 }
 
