@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="sheet.css">
 
 <div class="wrapper">
-
-  <!-- ============ PERSISTENT HEADER (visible on every tab) ============ -->
-  <!-- Layout is done in CSS: each .header-row is a flex row; .narrow / .medium / .grow set how a field shares the width. -->
+  <!-- Header, Persistent across tabs -->
   <div class="header">
     <div class="header-row">
       <label class="field medium"><input type="text" name="attr_crawler_number"><span class="header-label">Crawler Number</span></label>
@@ -66,9 +64,9 @@
         <input type="number" name="attr_hunter_kills" value="0" readonly>
       </label> <!-- Hunters -->
     </div>
-  </div>
+  </div> <!-- end header -->
 
-  <!-- ============ TABS ============ -->
+  <!-- Tabbed Content -->
   <div class="tabs">
     <input type="radio" class="tab tab1" name="attr_tab" value="1" title="Overview" checked><span class="tab-label">Overview</span>
     <input type="radio" class="tab tab2" name="attr_tab" value="2" title="Skills"><span class="tab-label">Skills</span>
@@ -79,14 +77,9 @@
     <input type="radio" class="tab tab7" name="attr_tab" value="7" title="Settings"><span class="tab-label tab7">&#9881;</span>
 
     <div class="pages">
-
-      <!-- ===== TAB 1: OVERVIEW ===== -->
-      <div class="page page1">
-        <div class="page-layout">
-
-          <!-- Left column: Time to Level Collapse, AI Favor, Popularity, Leaderboard, and Stats -->
-          <div class="stacked overview-split standard-spacing">
-            
+      <div class="page page1"> <!-- Overview Tab -->
+        <div class="page-layout"> <!-- Page 1 Layout -->
+          <div class="stacked overview-split standard-spacing"><!-- Left column: Time to Level Collapse, AI Favor, Popularity, Leaderboard, and Stats -->
             <div class="stacked section-container standard-spacing"> <!-- Time to Level Collapse, AI Favor, Popularity / Leaderboard -->
               <div class="stacked">
                 <input name="attr_floor_time_remaining" class="standard-input" type="text"/>
@@ -100,7 +93,7 @@
                 </div>
               </div>
 
-              <div class="stacked">
+              <div class="stacked"> <!-- AI Favor -->
                 <input name="attr_ai_favor" class="standard-input" type="number" min="0" value="0"/>
                 <div class="side-by-side">
                   <span class="sub-label">AI Favor</span>
@@ -112,7 +105,7 @@
                 </div>
               </div>
 
-              <div class="side-by-side standard-spacing">
+              <div class="side-by-side standard-spacing"> <!-- Popularity -->
                 <input name="attr_display_second_floor" type="hidden" class="visibility-toggle" value=""/>
                 <div class="stacked">
                   <input name="attr_popularity" class="standard-input" type="number" min="0" value="0"/>
@@ -127,7 +120,7 @@
                 </div>
                 
                 <input name="attr_display_fourth_floor" type="hidden" class="visibility-toggle" value=""/>
-                <div class="stacked">
+                <div class="stacked"> <!-- Leaderboard Rank -->
                   <input name="attr_leaderboard_standing" class="standard-input" type="number" min="0" value="0"/>
                   <div class="side-by-side">
                     <span class="sub-label">Leaderboard</span>
@@ -921,11 +914,10 @@
             
             
           </div> <!-- end of right column -->
-        </div> <!-- end of overview page -->
-      </div> <!-- end of page 1-->
+        </div> <!-- end of page layout -->
+      </div> <!-- end page 1 -->
 
-      <!-- ===== TAB 2: SKILLS ===== -->
-      <div class="page page2">
+      <div class="page page2"> <!-- Skills Tab -->
         <div class="stacked page-layout">
           <div class="section-container stacked"> <!-- Attacks -->
             <span class="section-label">Attacks</span>
@@ -1241,10 +1233,9 @@
             </div>
           </div> <!-- end Utility -->
         </div>
-      </div>
+      </div> <!-- end page 2 -->
 
-      <!-- ===== TAB 3: INVENTORY ===== -->
-      <div class="page page3">
+      <div class="page page3"><!-- Inventory Tab -->
         <div class="side-by-side page-layout">
           <div class="stacked standard-spacing wide"> <!-- left column -->
             <div class="stacked standard-spacing section-container stretch-width"> <!-- Hotlist -->
@@ -1493,8 +1484,7 @@
         </div> <!-- ./ end page 3 layout -->
       </div> <!-- ./ end page 3 -->
 
-      <!-- ===== TAB 4: INFO ===== -->
-      <div class="page page4"> <!-- page 4-->
+      <div class="page page4"> <!-- Info Tab -->
         <div class="stacked page-layout standard-spacing stretch-width"> <!-- page 4 layout -->
           <div class="side-by-side standard-spacing"> <!-- Past Trauma, Loose Ends, Regrets -->
             <div class="stacked section-container">
@@ -1647,8 +1637,7 @@
         </div> <!-- end page 4 layout -->
       </div> <!-- end page 4 -->
 
-      <!-- ===== TAB 5: ACHIEVEMENTS ===== -->
-      <div class="page page5">
+      <div class="page page5"> <!-- Achievements Tab -->
         <div class="stacked page-layout standard-spacing stretch-width"> <!-- page 5 layout -->
           <div class="stacked section-container standard-spacing"> <!-- Achievements -->
             <span class="section-label">Achievements</span>
@@ -1667,8 +1656,9 @@
           </div> <!-- end achievements -->
         </div> <!-- end page 5 layout -->
 
-      </div><!-- ===== TAB 6: NOTES ===== -->
-      <div class="page page6">
+      </div> <!-- end page 5 -->
+
+      <div class="page page6"> <!-- Notes Tab -->
         <div class="stacked page-layout standard-spacing stretch-width"> <!-- page 6 layout -->
           <div class="stacked section-container standard-spacing"> <!-- Messages -->
             <span class="section-label">Messages</span>
@@ -1727,10 +1717,9 @@
             </div> <!-- end inline -->
           </div> <!-- end quests -->
         </div> <!-- end page 6 layout -->
-      </div>
+      </div> <!-- end page 6 -->
 
-      <!-- ===== TAB 7: SETTINGS ===== -->
-      <div class="page page7">
+      <div class="page page7"> <!-- Settings Tab -->
         <div class="settings-panel stacked stretch-width">
           <h3>Sheet Settings</h3>
           <div class="side-by-side">
@@ -1841,7 +1830,7 @@
             <input type="checkbox" name="attr_hide_tabbed_inventory" value="1" checked/>
           </div>
         </div>
-      </div> <!-- end of page 6-->
+      </div> <!-- end page 7 -->
     </div><!-- /.pages -->
   </div><!-- /.tabs -->
 </div><!-- /.wrapper -->
