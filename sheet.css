@@ -1051,16 +1051,8 @@ input.inventory-value-display-mirror[value="3"] ~ .inventory-value-display.displ
   display: block !important;
 }
 
-/** PLACEHOLDER **/
-
-.placeholder {
-  padding: 60px 20px;
-  text-align: center;
-  color: #777;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px dashed #bbb;
+.white-background {
+  background: var(--white) !important;
 }
 
 /* ============ OVERVIEW PAGE ============ */
@@ -1098,21 +1090,25 @@ input.score {
 
 textarea.hotlist-slot {
   height: 60px !important;
+  color: var(--black);
   font-size: 12px !important;
   font-weight: 600 !important;
   text-align: center !important;
   align-content: center !important;
   border: 2px solid var(--line) !important;
+  background: var(--white) !important;
   width: 100% !important;
   resize: none !important;
 }
 
 textarea.info-text {
   height: 120px !important;
+  color: var(--black);
   font-size: 14px !important;
   font-weight: 500 !important;
   text-align: center !important;
   border: 1px solid var(--line) !important;
+  background: var(--white) !important;
   width: 100% !important;
   resize: none !important;
 }
@@ -1120,10 +1116,12 @@ textarea.info-text {
 textarea.general-text {
   height: auto;
   min-height: 60px !important;
+  color: var(--black);
   font-size: 14px !important;
   font-weight: 500 !important;
   text-align: left !important;
   border: 1px solid var(--line) !important;
+  background: var(--white) !important;
   width: 100% !important;
   resize: vertical !important;
 }
@@ -1340,21 +1338,6 @@ input[type="checkbox"].dying-skull:checked + span::before {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-}
-
-.repcontainer[data-groupname="repeating_items"] .repitem,
-.repcontainer[data-groupname="repeating_gear"] .repitem,
-.repcontainer[data-groupname="repeating_consumables"] .repitem,
-.repcontainer[data-groupname="repeating_questItems"] .repitem,
-.repcontainer[data-groupname="repeating_lootBoxes"] .repitem,
-.repcontainer[data-groupname="repeating_itemHistory"] .repitem,
-.repcontainer[data-groupname="repeating_racialAbilities"] .repitem,
-.repcontainer[data-groupname="repeating_classAbilities"] .repitem,
-.repcontainer[data-groupname="repeating_kills"] .repitem,
-.repcontainer[data-groupname="repeating_achievements"] .repitem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px;
 }
 
 .repcontrol_edit {

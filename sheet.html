@@ -1364,13 +1364,11 @@
                   <div class="inventory-page page1"> <!-- General Inventory -->
                     <div class="inline">
                       <fieldset class="repeating_items">
-                        <div class="stacked stretch-width">
-                          <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
-                            <label class="field medium"><input type="text" name="attr_item_general_name"><span class="header-label">Item</span></label>
-                            <label class="field narrow"><input type="number" name="attr_item_general_quantity"><span class="header-label">Quantity</span></label>
-                            <label class="field wide"><input type="text" name="attr_item_general_notes"><span class="header-label">Notes</span></label>
-                            <label class="field narrow"><input type="text" name="attr_item_general_value"><span class="header-label">Value</span></label>
-                          </div>
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
+                          <label class="field medium"><input type="text" name="attr_item_general_name"><span class="header-label">Item</span></label>
+                          <label class="field narrow"><input type="number" name="attr_item_general_quantity"><span class="header-label">Quantity</span></label>
+                          <label class="field max"><input type="text" name="attr_item_general_notes"><span class="header-label">Notes</span></label>
+                          <label class="field narrow"><input type="text" name="attr_item_general_value"><span class="header-label">Value</span></label>
                         </div>
                       </fieldset>
                     </div>
@@ -1379,7 +1377,7 @@
                   <div class="inventory-page page2"> <!-- Gear Inventory -->
                     <div class="inline">
                       <fieldset class="repeating_gear">
-                        <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
                           <label class="field medium"><input type="text" name="attr_item_gear_name"><span class="header-label">Item</span></label>
                           <label class="field narrow"><input type="number" name="attr_item_gear_quantity"><span class="header-label">Quantity</span></label>
                           <label class="field medium"> <!-- Slot -->
@@ -1405,7 +1403,7 @@
                   <div class="inventory-page page3"> <!-- Consumables Inventory -->
                     <div class="inline">
                       <fieldset class="repeating_consumables">
-                        <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
                           <label class="field medium"><input type="text" name="attr_item_consumables_name"><span class="header-label">Item</span></label>
                           <label class="field narrow"><input type="number" name="attr_item_consumables_quantity"><span class="header-label">Quantity</span></label>
                           <label class="field medium"> <!-- Type -->
@@ -1432,7 +1430,7 @@
                   <div class="inventory-page page4"> <!-- Quest Items Inventory -->
                     <div class="inline">
                       <fieldset class="repeating_questItems">
-                        <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
                           <label class="field medium"><input type="text" name="attr_item_quest_items_name"><span class="header-label">Item</span></label>
                           <label class="field narrow"><input type="number" name="attr_item_quest_items_quantity"><span class="header-label">Quantity</span></label>
                           <label class="field medium"><input type="text" name="attr_item_quest_items_quest"><span class="header-label">Associated Quest</span></label>
@@ -1445,7 +1443,7 @@
                   <div class="inventory-page page5"> <!-- Loot Boxes Inventory -->
                     <div class="inline">
                       <fieldset class="repeating_lootBoxes">
-                        <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
                           <label class="field medium"> <!-- Type -->
                             <select name="attr_item_loot_box_tier">
                               <option value="bronze">Bronze</option>
@@ -1468,7 +1466,7 @@
                   <div class="inventory-page page6"> <!-- Inventory History -->
                     <div class="inline">
                       <fieldset class="repeating_itemHistory">
-                        <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
+                        <div class="side-by-side standard-spacing section-container white-background"> <!-- Inventory Row -->
                           <label class="field medium"><input type="text" name="attr_item_history_name"><span class="header-label">Item</span></label>
                           <label class="field max"><input type="text" name="attr_item_history_notes"><span class="header-label">Notes</span></label>
                           <label class="field grow"><input type="text" name="attr_item_history_former_owners"><span class="header-label">Former Owners</span></label>
@@ -1487,17 +1485,44 @@
               <input name="attr_misc_junk" class="standard-input" type="number" min="0" value="0"/>
               <span class="sub-label">Misc Junk</span>
             </div>
-            <div class="stacked"> <!-- Custom Resources -->
+            <div class="stacked standard-spacing"> <!-- Custom Resources -->
+              <div class="stacked section-container stretch-width white-background"> <!-- 1st Custom Resource -->
+                <label class="field"><input type="text" name="attr_resource_name_1" placeholder="Important Resource 1"><span class="header-label">Name</span></label>
+                <div class="side-by-side standard-spacing">
+                  <label class="field narrow"><input type="number" name="attr_resource_uses_1" placeholder="0"><span class="header-label">Uses</span></label>
+                  <span class="large-font">/</span>
+                  <label class="field narrow"><input type="number" name="attr_resource_max_uses_1" placeholder="0"><span class="header-label">Max</span></label>
+                </div>
+                <label class="field"><input type="text" name="attr_resource_refresh_1" placeholder="Short Rest"><span class="header-label">Refresh On</span></label>
+              </div>
+              <div class="stacked section-container stretch-width white-background"> <!-- 2nd Custom Resource -->
+                <label class="field"><input type="text" name="attr_resource_name_2" placeholder="Important Resource 2"><span class="header-label">Name</span></label>
+                <div class="side-by-side standard-spacing">
+                  <label class="field narrow"><input type="number" name="attr_resource_uses_2" placeholder="0"><span class="header-label">Uses</span></label>
+                  <span class="large-font">/</span>
+                  <label class="field narrow"><input type="number" name="attr_resource_max_uses_2" placeholder="0"><span class="header-label">Max</span></label>
+                </div>
+                <label class="field"><input type="text" name="attr_resource_refresh_2" placeholder="Short Rest"><span class="header-label">Refresh On</span></label>
+              </div>
+              <div class="stacked section-container stretch-width white-background"> <!-- 3rd Custom Resource -->
+                <label class="field"><input type="text" name="attr_resource_name_3" placeholder="Important Resource 3"><span class="header-label">Name</span></label>
+                <div class="side-by-side standard-spacing">
+                  <label class="field narrow"><input type="number" name="attr_resource_uses_3" placeholder="0"><span class="header-label">Uses</span></label>
+                  <span class="large-font">/</span>
+                  <label class="field narrow"><input type="number" name="attr_resource_max_uses_3" placeholder="0"><span class="header-label">Max</span></label>
+                </div>
+                <label class="field"><input type="text" name="attr_resource_refresh_3" placeholder="Short Rest"><span class="header-label">Refresh On</span></label>
+              </div>
               <div class="inline">
                 <fieldset class="repeating_resources"> <!-- repeating resources -->
-                  <div class="stacked section-container"> <!-- Custom Resource -->
-                    <label class="field"><input type="text" name="attr_resource_name"><span class="header-label">Name</span></label>
+                  <div class="stacked section-container stretch-width white-background"> <!-- Custom Resource -->
+                    <label class="field"><input type="text" name="attr_resource_name" placeholder="Important Resource N"><span class="header-label">Name</span></label>
                     <div class="side-by-side standard-spacing">
-                      <label class="field narrow"><input type="number" name="attr_resource_uses"><span class="header-label">Uses</span></label>
+                      <label class="field narrow"><input type="number" name="attr_resource_uses" placeholder="0"><span class="header-label">Uses</span></label>
                       <span class="large-font">/</span>
-                      <label class="field narrow"><input type="number" name="attr_resource_max_uses"><span class="header-label">Max</span></label>
+                      <label class="field narrow"><input type="number" name="attr_resource_max_uses" placeholder="0"><span class="header-label">Max</span></label>
                     </div>
-                    <label class="field"><input type="text" name="attr_resource_refresh"><span class="header-label">Refresh On</span></label>
+                    <label class="field"><input type="text" name="attr_resource_refresh" placeholder="Short Rest"><span class="header-label">Refresh On</span></label>
                   </div>
                 </fieldset> <!--/.repeating resources-->
               </div>
