@@ -1118,6 +1118,7 @@ textarea.info-text {
 }
 
 textarea.general-text {
+  height: auto;
   min-height: 60px !important;
   font-size: 14px !important;
   font-weight: 500 !important;
