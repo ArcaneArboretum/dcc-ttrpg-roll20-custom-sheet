@@ -1532,7 +1532,7 @@
       </div> <!-- end page 3 -->
 
       <div class="page page4"> <!-- Info Tab -->
-        <div class="stacked page-layout standard-spacing stretch-width"> <!-- page 4 layout -->
+        <div class="stacked page-layout standard-spacing stretch-height stretch-width"> <!-- page 4 layout -->
           <div class="side-by-side standard-spacing"> <!-- Past Trauma, Loose Ends, Regrets -->
             <div class="stacked section-container">
               <span class="section-label">Past Trauma</span>
@@ -1546,22 +1546,22 @@
               <span class="section-label">Regrets</span>
               <textarea name="attr_regrets" class="info-text" placeholder="I treated people poorly before the end, and now I can't say I'm sorry."></textarea>
             </div>
-          </div>
+          </div> <!-- end Past Trauma, Loose Ends, Regrets -->
 
-          <div class="side-by-side standard-spacing"> <!-- Party Members, Guilds, Deity -->
+          <div class="side-by-side standard-spacing"> <!-- Party Members, Memberships, Deity -->
             <div class="stacked section-container">
               <span class="section-label">Party Members</span>
               <textarea name="attr_party_members" class="info-text" placeholder="No one. I am alone..."></textarea>
             </div>
             <div class="stacked section-container">
-              <span class="section-label">Clubs, Societies, & Guilds</span>
+              <span class="section-label">Memberships</span>
               <textarea name="attr_memberships" class="info-text" placeholder="I am not yet a member of any clubs, societies, or guilds."></textarea>
             </div>
             <div class="stacked section-container">
               <span class="section-label">Deity</span>
               <textarea name="attr_deity" class="info-text" placeholder="I do not yet worship a Deity."></textarea>
             </div>
-          </div>
+          </div> <!-- end Party Members, Memberships, Deity -->
 
           <input name="attr_display_fourth_floor" type="hidden" class="visibility-toggle" value=""/>
           <div class="side-by-side standard-spacing"> <!-- Sponsors -->
@@ -1582,7 +1582,7 @@
               <span class="section-label">Sponsor 3</span>
               <textarea name="attr_sponsor_3" class="info-text" placeholder="None."></textarea>
             </div>
-          </div>
+          </div> <!-- end Sponsors -->
 
           <input name="attr_display_fourth_floor" type="hidden" class="visibility-toggle" value=""/>
           <div class="side-by-side standard-spacing stretch-height"> <!-- Personal Space, Mercs and Minions -->
@@ -1606,7 +1606,7 @@
               <span class="section-label">Mercenaries and Hirelings</span>
               <textarea name="attr_mercenaries" class="info-text fill-height" placeholder="I haven't hired any NPC Mercenaries yet."></textarea>
             </div>
-          </div>
+          </div> <!-- end Personal Space, Mercenaries-->
 
           <div class="side-by-side standard-spacing stretch-height"> <!-- Racial Abilities, Class Abilities, Important Kills -->
             <div class="stacked section-container"> <!-- Racial Abilities -->
@@ -1614,7 +1614,9 @@
               <div class="stacked stretch-width">
                 <div class="inline">
                   <fieldset class="repeating_racialAbilities">
-                    <label class="field"><input name="attr_racial_ability" type="text"/><span class="header-label">Ability</span></label>
+                    <div class="section-container white-background">
+                      <label class="field"><input name="attr_racial_ability" type="text"/><span class="header-label">Ability</span></label>
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -1626,7 +1628,9 @@
               <div class="stacked stretch-width">
                 <div class="inline">
                   <fieldset class="repeating_classAbilities">
-                    <label class="field"><input name="attr_class_ability" type="text"/><span class="header-label">Ability</span></label>
+                    <div class="section-container white-background">
+                      <label class="field"><input name="attr_class_ability" type="text"/><span class="header-label">Ability</span></label>
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -1637,7 +1641,7 @@
             <span class="section-label">Important Kills</span>
             <div class="inline">
               <fieldset class="repeating_kills">
-                <div class="stacked stretch-width">
+                <div class="stacked stretch-width section-container white-background">
                   <div class="side-by-side standard-spacing"> <!-- Inventory Row -->
                     <label class="field grow"><input type="text" name="attr_kill_entity"><span class="header-label">Entity</span></label>
                     <label class="field medium"> <!-- Type -->

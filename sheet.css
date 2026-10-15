@@ -1055,8 +1055,12 @@ input.inventory-value-display-mirror[value="3"] ~ .inventory-value-display.displ
   background: var(--white) !important;
 }
 
+.page-layout { 
+  display: flex !important;
+  gap: 5px;
+  align-items: flex-start;
+}
 /* ============ OVERVIEW PAGE ============ */
-.page-layout { display: flex !important; gap: 12px; align-items: flex-start; }
 
 .overview-main {
   flex: 1 1 auto;
@@ -1088,27 +1092,28 @@ input.score {
   border: 2px solid var(--line) !important;
 }
 
+textarea {
+  background: var(--white) !important;
+  color: var(--black);
+}
+
 textarea.hotlist-slot {
   height: 60px !important;
-  color: var(--black);
   font-size: 12px !important;
   font-weight: 600 !important;
   text-align: center !important;
   align-content: center !important;
   border: 2px solid var(--line) !important;
-  background: var(--white) !important;
   width: 100% !important;
   resize: none !important;
 }
 
 textarea.info-text {
   height: 120px !important;
-  color: var(--black);
   font-size: 14px !important;
   font-weight: 500 !important;
   text-align: center !important;
   border: 1px solid var(--line) !important;
-  background: var(--white) !important;
   width: 100% !important;
   resize: none !important;
 }
@@ -1116,12 +1121,10 @@ textarea.info-text {
 textarea.general-text {
   height: auto;
   min-height: 60px !important;
-  color: var(--black);
   font-size: 14px !important;
   font-weight: 500 !important;
   text-align: left !important;
   border: 1px solid var(--line) !important;
-  background: var(--white) !important;
   width: 100% !important;
   resize: vertical !important;
 }
@@ -1467,7 +1470,7 @@ input[type="checkbox"].dying-skull:checked + span::before {
   font-weight: 600;
 }
 
-/* ============ ROLL TEMPLATE ============ */
+/* ============ ROLL TEMPLATES ============ */
 .sheet-rolltemplate-default .sheet-rt { 
     border: 2px solid #111;
     background: #fff;
