@@ -18,49 +18,49 @@
     </div>
     <div class="header-emblem-row">
       <label class="emblem narrow"> <!-- Player Killer Skulls -->
-        <span class="crawler-killer-skull red"></span>
+        <span class="crawler-killer-skull red">&#9760;</span>
         <input type="number" name="attr_crawler_kills" value="0" readonly>
       </label><!-- end Player Killer -->
 
       <input name="attr_display_fourth_floor" type="hidden" class="visibility-toggle" value=""/>
       <label class="emblem narrow"> <!-- Gold Player Killer Skulls -->
-        <span class="crawler-killer-skull gold"></span>
+        <span class="crawler-killer-skull gold">&#9760;</span>
         <input type="number" name="attr_crawler_top_10_kills" value="0" readonly>
       </label><!-- end Gold Player Killer -->
 
       <label class="emblem narrow"> <!-- Bronze Boss -->
-        <span class="boss-star bronze"></span>
+        <span class="boss-star bronze">&#9733;</span>
         <input type="number" name="attr_neighborhood_boss_kills" value="0" readonly>
       </label><!-- end Bronze Boss -->
 
       <label class="emblem narrow"> <!-- Silver Boss -->
-        <span class="boss-star silver"></span>
+        <span class="boss-star silver">&#9733;</span>
         <input type="number" name="attr_borough_boss_kills" value="0" readonly>
       </label><!-- end Silver Boss -->
 
       <label class="emblem narrow"> <!-- Gold Boss -->
-        <span class="boss-star gold"></span>
+        <span class="boss-star gold">&#9733;</span>
         <input type="number" name="attr_city_boss_kills" value="0" readonly>
       </label><!-- end Gold Boss -->
 
       <label class="emblem narrow"> <!-- Platinum Boss -->
-        <span class="boss-star platinum"></span>
+        <span class="boss-star platinum">&#9733;</span>
         <input type="number" name="attr_province_boss_kills" value="0" readonly>
       </label><!-- end Platinum Boss -->
 
       <label class="emblem narrow"> <!-- Legendary Boss -->
-        <span class="boss-star legendary"></span>
+        <span class="boss-star legendary">&#9733;</span>
         <input type="number" name="attr_country_boss_kills" value="0" readonly>
       </label><!-- end Legendary Boss -->
 
       <label class="emblem narrow"> <!-- Celestial Boss -->
-        <span class="boss-star celestial"></span>
+        <span class="boss-star celestial">&#9733;</span>
         <input type="number" name="attr_floor_boss_kills" value="0" readonly>
       </label><!-- end Celestial Boss -->
       
       <input name="attr_display_sixth_floor" type="hidden" class="visibility-toggle" value=""/>
       <label class="emblem narrow"> <!-- Hunter Daggers -->
-        <span class="hunter-dagger purple"></span>
+        <span class="hunter-dagger purple">&#128481;</span>
         <input type="number" name="attr_hunter_kills" value="0" readonly>
       </label> <!-- Hunters -->
     </div>
@@ -142,7 +142,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Strength is for lifting, hitting, and crushing things with your brutish meaty muscles. You can carry anything that weighs up to 15 X your Strength Score in pounds.</div>
                 </div>
-                <button type="roll" class="standard-roll offset" name="roll_str" value="&{template:default} {{character=@{character_name}}} {{name=Strength}} {{roll=[[1d20 + @{str_mod}]]}}">Strength</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_str" value="&{template:check} {{character=@{character_name}}} {{stat=Strength}} {{die=1d20}} {{mod=@{str_mod}}} {{roll=[[1d20 + @{str_mod}]]}}">Strength</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -165,7 +165,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Intelligence is how smart you are, how good you are at solving puzzles, and how well you observe and take in your surroundings. It's also used to cast spells, and determines your maximum mana.</div>
                 </div>
-                <button type="roll" class="standard-roll offset" name="roll_int" value="&{template:default} {{character=@{character_name}}} {{name=Intelligence}} {{roll=[[1d20 + @{int_mod}]]}}">Intelligence</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_int" value="&{template:check} {{character=@{character_name}}} {{stat=Intelligence}} {{die=1d20}} {{mod=@{int_mod}}} {{roll=[[1d20 + @{int_mod}]]}}">Intelligence</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -189,7 +189,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Constitution is your durability and resistance to vitality-draining effects, like Poison. It also determines your HB, how long you have to survive when you drop to 0% HB, and how long you can hold your breath.</div>
                 </div>
-                <button type="roll" class="standard-roll offset" name="roll_con" value="&{template:default} {{character=@{character_name}}} {{name=Constitution}} {{roll=[[1d20 + @{con_mod}]]}}">Constitution</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_con" value="&{template:check} {{character=@{character_name}}} {{stat=Constitution}} {{die=1d20}} {{mod=@{con_mod}}} {{roll=[[1d20 + @{con_mod}]]}}">Constitution</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -213,7 +213,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Dexterity is how nimble, agile, and quick on your feet you are. It's used for things like dodging enemies attacks (Evade), some melee attack skills, and most ranged attacks. It's also used to do things like hide from the Mobs when you're feeling like a little bitch.</div>
                 </div>
-                <button type="roll" class="standard-roll offset" name="roll_dex" value="&{template:default} {{character=@{character_name}}} {{name=Dexterity}} {{roll=[[1d20 + @{dex_mod}]]}}">Dexterity</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_dex" value="&{template:check} {{character=@{character_name}}} {{stat=Dexterity}} {{die=1d20}} {{mod=@{dex_mod}}} {{roll=[[1d20 + @{dex_mod}]]}}">Dexterity</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -237,7 +237,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Charisma is how much your presence takes up space in the proverbial room. You might be a sweet, bubbly spirit or a mean, nasty fucker. Either way, you can manipulate Mobs and NPCS into doing what you want, and get better deals at shops.</div>
                 </div>
-                <button type="roll" class="standard-roll offset" name="roll_cha" value="&{template:default} {{character=@{character_name}}} {{name=Charisma}} {{roll=[[1d20 + @{cha_mod}]]}}">Charisma</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_cha" value="&{template:check} {{character=@{character_name}}} {{stat=Charisma}} {{die=1d20}} {{mod=@{cha_mod}}} {{roll=[[1d20 + @{cha_mod}]]}}">Charisma</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -574,61 +574,61 @@
                   <input type="hidden" name="attr_dying_1_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_1_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_2_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_2_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_3_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_3_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_4_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_4_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_5_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_5_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_6_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_6_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_7_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_7_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_8_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_8_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_9_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_9_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                   <input type="hidden" name="attr_dying_10_active" class="visibility-toggle" value=""/>
                   <div class="dying-segment">
                     <input type="checkbox" name="attr_dying_10_checked" class="dying-skull" value="1" />
-                    <span></span>
+                    <span>&#9760;</span>
                   </div>
 
                 </div>
@@ -749,7 +749,7 @@
               </div> <!-- end of Mana -->
 
               <div class="section-container stacked standard-spacing stretch-height grow relative"> <!-- Evade -->
-                <button type="roll" class="standard-roll" name="roll_evade" value="&{template:default} {{character=@{character_name}}} {{name=Evade}} {{roll=[[1d20 + @{evade_total_bonus}]]}}">Evade</button>
+                <button type="roll" class="standard-roll roll1d20" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + @{evade_total_bonus}]]}}">Evade</button>
                 <input type="hidden" class="visibility-toggle" name="attr_display_tooltips" value=""/>
                 <div class="tooltip-wrapper absolute top right">
                   <span class="tooltip-icon">i</span>
@@ -855,8 +855,8 @@
                     <input type="text" class="small-input grow" value="Look For Clues" readonly/>
                     <input type="text" class="small-input max" value="Gather info in a Boss Fight" readonly/>
                   </div>
-                  <div class="side-by-side standard-spacing roll-container">
-                    <button type="roll" name="roll_called_play" value="&{template:otb} {{character=@{character_name}}} {{name=Called Play}} {{roll=[[2d6kh1]]}}"></button>
+                  <div class="side-by-side standard-spacing roll-container roll2d6">
+                    <button type="roll" name="roll_called_play" value="&{template:bonus_roll} {{character=@{character_name}}} {{action=Call A Play}} {{roll=[[1d6]]}} {{roll2=[[1d6]]}}"></button>
                     <input type="text" class="small-input grow" value="Call a Play" readonly>
                     <input type="text" class="small-input max" value="Buff Allies, if they cooperate" readonly/>
                   </div>
@@ -886,13 +886,13 @@
                     <input type="text" class="small-input grow" value="Interrupt Skills" readonly/>
                     <input type="text" class="small-input max" value="See skills, attacks, and spells" readonly/>
                   </div>
-                  <div class="side-by-side standard-spacing roll-container">
-                    <button type="roll" name="roll_evade" value="&{template:default} {{character=@{character_name}}} {{name=Evade}} {{roll=[[1d20 + @{evade_total_bonus}]]}}"></button>
+                  <div class="side-by-side standard-spacing roll-container roll1d20">
+                    <button type="roll" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + @{evade_total_bonus}]]}}"></button>
                     <input type="text" class="small-input grow" value="Evade" readonly/>
                     <input type="text" class="small-input max" value="Dodge incoming attacks" readonly/>
                   </div>
-                  <div class="side-by-side standard-spacing roll-container">
-                    <button type="roll" name="roll_intervene" value="&{template:otb} {{character=@{character_name}}} {{name=Intervene}} {{roll=[[1d6]]}}"></button>
+                  <div class="side-by-side standard-spacing roll-container roll1d6">
+                    <button type="roll" name="roll_intervene" value="&{template:bonus_roll} {{character=@{character_name}}} {{action=Intervene}} {{roll=[[1d6]]}}"></button>
                     <input type="text" class="small-input grow" value="Intervene" readonly/>
                     <input type="text" class="small-input max" value="Help someone else out" readonly/>
                   </div>
@@ -933,14 +933,14 @@
                         <option value="ranged">Ranged</option>
                         <option value="thrown">Thrown</option>
                         <option value="damage_effect">Damage Effect</option>
-                        <option value="other">Other</option>
+                        <option value="other" selected>Other</option>
                       </select>
                       <span class="header-label">Type</span>
                     </label>
                     <label class="field narrow"><input type="number" name="attr_attack_ai_favor" value="0"><span class="header-label">AI Favor</span></label>
                     <label class="field narrow"><input type="number" name="attr_attack_grinding_hours" value="0"><span class="header-label">Grind</span></label>
                     <input type="checkbox" name="attr_attack_ready_for_advancement" class="advancement-check narrow" value="1"/>
-                    <button type="roll" class="small-roll narrow" value="&{template:advancement} {{character=@{character_name}}} {{name=@{attack_name}}} {{rank=@{attack_rank}} {{roll=[[1d20]]}}">Advance</button>
+                    <button type="roll" class="small-roll narrow roll1d20" value="&{template:advancement} {{character=@{character_name}}} {{skill=@{attack_name}}} {{rank=[[@{attack_rank}]]}} {{roll=[[1d20]]}}">Advance</button>
                     <div class="toggle-label narrow">
                         <input type="checkbox" name="attr_collapse_attack" class="toggle-checkbox" value="1" />
                         <span class="icon-collapsed">▶</span>
@@ -1029,14 +1029,14 @@
                         <option value="skill_check">Skill Check</option>
                         <option value="passive">Passive</option>
                         <option value="healing">Healing</option>
-                        <option value="other">Other</option>
+                        <option value="other" selected>Other</option>
                       </select>
                       <span class="header-label">Type</span>
                     </label>
                     <label class="field narrow"><input type="number" name="attr_spell_ai_favor" value="0"><span class="header-label">AI Favor</span></label>
                     <label class="field narrow"><input type="number" name="attr_spell_grinding_hours" value="0"><span class="header-label">Grind</span></label>
                     <input type="checkbox" name="attr_spell_ready_for_advancement" class="advancement-check narrow" value="1"/>
-                    <button type="roll" class="small-roll narrow" value="&{template:advancement} {{character=@{character_name}}} {{name=@{spell_name}}} {{rank=@{spell_rank}}} {{roll=[[1d20]]}}">Advance</button>
+                    <button type="roll" class="small-roll narrow roll1d20" value="&{template:advancement} {{character=@{character_name}}} {{skill=@{spell_name}}} {{rank=[[@{spell_rank}]]}} {{roll=[[1d20]]}}">Advance</button>
                     <div class="toggle-label narrow">
                         <input type="checkbox" name="attr_collapse_spell" class="toggle-checkbox" value="1" />
                         <span class="icon-collapsed">▶</span>
@@ -1114,7 +1114,7 @@
                     <!-- if the spell requires a skill check, display that calculation -->
                     <input type="hidden" name="attr_spell_type_skill_check" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Skill Check -->
-                      <button type="roll" class="small-roll narrow" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[1d20 + @{spell_check_mod} + @{spell_check_bonus} + @{spell_rank}]]}}">Check</button>
+                      <button type="roll" class="small-roll narrow roll1d20" name="roll_spell_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{spell_name}}} {{skill_stat=@{spell_check_stat}}} {{opposed_by=@{spell_check_opposed_stat}}} {{die=1d20}} {{mod=@{spell_check_mod}}} {{bonus=@{spell_check_bonus}}} {{rank=@{spell_rank}}} {{roll=[[1d20 + @{spell_check_mod} + @{spell_check_bonus} + @{spell_rank}]]}}">Check</button>
                       <label class="field grow">
                         <select name="attr_spell_check_stat">
                           <option value="strength">Strength</option>
@@ -1151,11 +1151,11 @@
                       <label class="field medium">
                         <select name="attr_spell_healing_stat">
                           <option value="strength">Strength</option>
-                          <option value="intelligence" selected>Intelligence</option>
+                          <option value="intelligence">Intelligence</option>
                           <option value="constitution">Constitution</option>
                           <option value="dexterity">Dexterity</option>
                           <option value="charisma">Charisma</option>
-                          <option value="none">None</option>
+                          <option value="none" selected>None</option>
                         </select>
                         <span class="header-label">Stat</span>
                       </label>
@@ -1179,15 +1179,15 @@
                     <label class="field medium">
                       <select name="attr_skill_type">
                         <option value="passive">Passive</option>
-                        <option value="has_check" checked>Unopposed</option>
-                        <option value="has_check">Opposed</option>
-                        <option value="other">Other</option>
+                        <option value="unopposed">Unopposed</option>
+                        <option value="opposed">Opposed</option>
+                        <option value="other" selected>Other</option>
                       </select>
                       <span class="header-label">Type</span>
                     </label>
                     <label class="field narrow"><input type="number" name="attr_skill_grinding_hours" value="0"><span class="header-label">Grind</span></label>
                     <input type="checkbox" name="attr_skill_ready_for_advancement" class="advancement-check" value="1"/>
-                    <button type="roll" class="small-roll" value="&{template:advancement} {{character=@{character_name}}} {{name=@{skill_name}}} {{rank=@{skill_rank}} {{roll=[[1d20]]}}"></button>
+                    <button type="roll" class="small-roll narrow roll1d20" value="&{template:advancement} {{character=@{character_name}}} {{skill=@{skill_name}}} {{rank=[[@{skill_rank}]]}} {{roll=[[1d20]]}}">Advance</button>
                     <div class="toggle-label narrow">
                         <input type="checkbox" name="attr_collapse_skill" class="toggle-checkbox" value="1" />
                         <span class="icon-collapsed">▶</span>
@@ -1221,7 +1221,7 @@
                   
                     <input type="hidden" name="attr_skill_type_has_check" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Skill Check -->
-                      <button type="roll" class="small-roll narrow" name="roll_check" value="&{template:skill_check} {{character=@{character_name}}} {{name=@{skill_name}}} {{roll=[[1d20 + @{skill_check_mod} + @{skill_check_bonus} + @{skill_rank}]]}}">Check</button>
+                      <button type="roll" class="small-roll narrow roll1d20" name="roll_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{skill_name}}} {{skill_stat=@{skill_check_stat}}} {{opposed_by=@{skill_check_opposed_by}}} {{die=1d20}} {{mod=@{skill_check_mod}}} {{bonus=@{skill_check_bonus}}} {{rank=@{skill_rank}}} {{roll=[[1d20 + @{skill_check_mod} + @{skill_check_bonus} + @{skill_rank}]]}}">Check</button>
                       <label class="field grow">
                         <select name="attr_skill_check_stat">
                           <option value="strength" selected>Strength</option>
@@ -1243,7 +1243,7 @@
                           <option value="charisma">Charisma</option>
                           <option value="other">Other</option>
                         </select>
-                        <span class="header-label">Stat</span>
+                        <span class="header-label">Opposed By</span>
                       </label>
                       <label class="field narrow"><input type="number" name="attr_skill_check_mod" readonly><span class="header-label">Mod</span></label>
                       <label class="field narrow"><input type="text" name="attr_skill_check_bonus"><span class="header-label">Bonus</span></label>
@@ -1771,8 +1771,8 @@
       </div> <!-- end page 6 -->
 
       <div class="page page7"> <!-- Settings Tab -->
-        <div class="settings-panel stacked stretch-width">
-          <h3>Sheet Settings</h3>
+        <div class="settings-panel stacked standard-spacing">
+          <span class="section-label">Sheet Settings</span>
           <div class="side-by-side">
             <label class="standard-label">Hide Tooltips</label>
             <input type="checkbox" name="attr_display_tooltips" value="1"/>

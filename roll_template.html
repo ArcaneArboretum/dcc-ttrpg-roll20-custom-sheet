@@ -1,25 +1,135 @@
-<!-- ROLL TEMPLATE DEFAULT -->
-<rolltemplate class="sheet-rolltemplate-default">
-  <div class="sheet-rt">
-    <div class="sheet-rt-head">
-      {{name}}
-      {{#character}}<div class="sheet-rt-char">{{character}}</div>{{/character}}
+<link rel="stylesheet" href="sheet.css">
+
+<rolltemplate class="sheet-rolltemplate-check">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>
+        {{#skill}}Skill Check: {{skill}}{{/skill}}{{#stat}}Stat Check: {{stat}}{{/stat}}{{#action}}Action: {{action}}{{/action}}
+      </div>
+      {{#skill_stat}}<div class="sheet-rt-italics">{{skill_stat}}</div>{{/skill_stat}}
     </div>
-    <div class="sheet-rt-body">
-      <span class="sheet-rt-roll">{{roll}}</span>
+
+    {{#opposed_by}}
+    <div class="sheet-rt-row">
+      <span class="sheet-rt-label">Check Opposed By:</span>
+      <span class="sheet-rt-val">{{opposed_by}}</span>
+    </div>
+    {{/opposed_by}}
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{die}}</span>
+        <span class="sheet-rt-math-label">Dice</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      {{#rank}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{rank}}</span>
+        <span class="sheet-rt-math-label">Rank</span>
+      </div>
+      {{/rank}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
     </div>
   </div>
 </rolltemplate>
 
-<!-- One-Time Bonus Template (Called Play, Intervene, etc.)-->
-<rolltemplate class="sheet-rolltemplate-otb">
-  <div class="sheet-rt">
-    <div class="sheet-rt-head">
-      {{name}}
-      {{#character}}<div class="sheet-rt-char">{{character}}</div>{{/character}}
+<rolltemplate class="sheet-rolltemplate-bonus_roll">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>Action: {{action}}</div>
     </div>
-    <div class="sheet-rt-body">
-      <span class="sheet-rt-roll">{{roll}}</span>
+
+    {{#roll2}}
+      {{#rollGreater() roll roll2}}
+      <div class="sheet-rt-row sheet-rt-winner">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll}}</span>
+      </div>
+      <div class="sheet-rt-row sheet-rt-faded">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll2}}</span>
+      </div>
+      {{/rollGreater() roll roll2}}
+
+      {{#rollLess() roll roll2}}
+      <div class="sheet-rt-row sheet-rt-faded">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll}}</span>
+      </div>
+      <div class="sheet-rt-row sheet-rt-winner">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll2}}</span>
+      </div>
+      {{/rollLess() roll roll2}}
+
+      {{#rollTotal() roll roll2}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll}}</span>
+      </div>
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll2}}</span>
+      </div>
+      {{/rollTotal() roll roll2}}
+    {{/roll2}}
+
+    {{^roll2}}
+    <div class="sheet-rt-row">
+      <span class="sheet-rt-label">Result:</span>
+      <span class="sheet-rt-val">{{roll}}</span>
+    </div>
+    {{/roll2}}
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-advancement">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>Skill To Advance: {{skill}}</div>
+    </div>
+
+    <div class="sheet-rt-row">
+      <span class="sheet-rt-label">D20 Result:</span>
+      <span class="sheet-rt-val">{{roll}}</span>
+    </div>
+
+    <div class="sheet-rt-row">
+      <span class="sheet-rt-label">Current Rank:</span>
+      <span class="sheet-rt-val">{{rank}}</span>
+    </div>
+
+    <div class="sheet-rt-row">
+      <span class="sheet-rt-label">Result:</span>
+      <span class="sheet-rt-val">
+        {{#^rollLess() roll rank}}<span class="sheet-rt-success-highlight">SUCCESS! (RANK UP)</span>{{/^rollLess() roll rank}}
+        {{#rollLess() roll rank}}<span class="sheet-rt-fail-highlight">ADVANCEMENT FAILED</span>{{/rollLess() roll rank}}
+      </span>
     </div>
   </div>
 </rolltemplate>
