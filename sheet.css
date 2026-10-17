@@ -1621,7 +1621,9 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-bonus_roll .sheet-rt-container,
 .sheet-rolltemplate-advancement .sheet-rt-container,
 .sheet-rolltemplate-attack .sheet-rt-container,
-.sheet-rolltemplate-heal .sheet-rt-container {
+.sheet-rolltemplate-damage .sheet-rt-container,
+.sheet-rolltemplate-damage_only .sheet-rt-container,
+.sheet-rolltemplate-healing .sheet-rt-container {
   font-family: 'Arial Narrow', 'Impact', 'Trebuchet MS', sans-serif;
   border: 2px solid var(--line);
   background-color: var(--paper);
@@ -1634,7 +1636,10 @@ input[type="checkbox"].dying-skull:checked+span {
 
   --red: #d7262e;
   --red-highlight: #ff767c;
+  --red-dark: #440404;
   --green: #27ae60;
+  --green-highlight: #b5f6b5;
+  --green-dark: #084408;
   --black: #111;
   --white: #fff;
   --paper: #f4f6f4;
@@ -1658,11 +1663,47 @@ input[type="checkbox"].dying-skull:checked+span {
   --purple-highlight: #85458f;
 }
 
+.sheet-rolltemplate-attack .sheet-rt-container {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-bottom: 1px dashed var(--line) !important;
+}
+
+.sheet-rolltemplate-damage_only .sheet-rt-container {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-top: 1px dashed var(--line) !important;
+}
+
+.sheet-rolltemplate-check .sheet-rt-container > :first-child,
+.sheet-rolltemplate-bonus_roll .sheet-rt-container > :first-child,
+.sheet-rolltemplate-advancement .sheet-rt-container > :first-child,
+.sheet-rolltemplate-attack .sheet-rt-container > :first-child,
+.sheet-rolltemplate-damage .sheet-rt-container > :first-child,
+.sheet-rolltemplate-healing .sheet-rt-container > :first-child {
+  border-top: none !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+
+.sheet-rolltemplate-check .sheet-rt-container > :last-child,
+.sheet-rolltemplate-bonus_roll .sheet-rt-container > :last-child,
+.sheet-rolltemplate-advancement .sheet-rt-container > :last-child,
+.sheet-rolltemplate-damage .sheet-rt-container > :last-child,
+.sheet-rolltemplate-damage_only .sheet-rt-container > :last-child,
+.sheet-rolltemplate-healing .sheet-rt-container > :last-child {
+  border-bottom: none !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
 .sheet-rolltemplate-check .inlinerollresult,
 .sheet-rolltemplate-bonus_roll .inlinerollresult,
 .sheet-rolltemplate-advancement .inlinerollresult,
 .sheet-rolltemplate-attack .inlinerollresult,
-.sheet-rolltemplate-heal .inlinerollresult {
+.sheet-rolltemplate-damage .inlinerollresult,
+.sheet-rolltemplate-damage_only .inlinerollresult,
+.sheet-rolltemplate-healing .inlinerollresult {
   background-color: transparent !important;
   border: none !important;
   color: inherit !important;
@@ -1671,11 +1712,43 @@ input[type="checkbox"].dying-skull:checked+span {
   padding: 0 !important;
 }
 
+.sheet-rolltemplate-check .inlinerollresult.fullfail,
+.sheet-rolltemplate-bonus_roll .inlinerollresult.fullfail,
+.sheet-rolltemplate-advancement .inlinerollresult.fullfail,
+.sheet-rolltemplate-attack .inlinerollresult.fullfail,
+.sheet-rolltemplate-damage .inlinerollresult.fullfail,
+.sheet-rolltemplate-damage_only .inlinerollresult.fullfail,
+.sheet-rolltemplate-healing .inlinerollresult.fullfail {
+    background-color: var(--red-highlight) !important;
+    border: 2px solid var(--red-dark) !important;
+    color: var(--red-dark) !important;
+    font-weight: bold !important;
+    border-radius: 3px !important;
+    padding: 0px 3px !important;
+}
+
+.sheet-rolltemplate-check .inlinerollresult.fullcrit,
+.sheet-rolltemplate-bonus_roll .inlinerollresult.fullcrit,
+.sheet-rolltemplate-advancement .inlinerollresult.fullcrit,
+.sheet-rolltemplate-attack .inlinerollresult.fullcrit,
+.sheet-rolltemplate-damage .inlinerollresult.fullcrit,
+.sheet-rolltemplate-damage_only .inlinerollresult.fullcrit,
+.sheet-rolltemplate-healing .inlinerollresult.fullcrit {
+    background-color: var(--green-highlight) !important;
+    border: 2px solid var(--green-dark) !important;
+    color: var(--green-dark) !important;
+    font-weight: bold !important;
+    border-radius: 3px !important;
+    padding: 0px 3px !important;
+}
+
 .sheet-rolltemplate-check .sheet-rt-italics,
 .sheet-rolltemplate-bonus_roll .sheet-rt-italics,
 .sheet-rolltemplate-advancement .sheet-rt-italics,
 .sheet-rolltemplate-attack .sheet-rt-italics,
-.sheet-rolltemplate-heal .sheet-rt-italics {
+.sheet-rolltemplate-damage .sheet-rt-italics,
+.sheet-rolltemplate-damage_only .sheet-rt-italics,
+.sheet-rolltemplate-healing .sheet-rt-italics {
   font-style: italic !important;
 }
 
@@ -1683,7 +1756,9 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-bonus_roll .sheet-rt-header,
 .sheet-rolltemplate-advancement .sheet-rt-header,
 .sheet-rolltemplate-attack .sheet-rt-header,
-.sheet-rolltemplate-heal .sheet-rt-header {
+.sheet-rolltemplate-damage .sheet-rt-header,
+.sheet-rolltemplate-damage_only .sheet-rt-header,
+.sheet-rolltemplate-healing .sheet-rt-header {
   background-color: var(--black);
   color: var(--white);
   padding: 8px 12px;
@@ -1691,8 +1766,57 @@ input[type="checkbox"].dying-skull:checked+span {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-check .sheet-rt-sub-header,
+.sheet-rolltemplate-bonus_roll .sheet-rt-sub-header,
+.sheet-rolltemplate-advancement .sheet-rt-sub-header,
+.sheet-rolltemplate-attack .sheet-rt-sub-header,
+.sheet-rolltemplate-damage .sheet-rt-sub-header,
+.sheet-rolltemplate-damage_only .sheet-rt-sub-header,
+.sheet-rolltemplate-healing .sheet-rt-sub-header {
+  background-color: var(--dark-paper);
+  color: var(--black);
+  padding: 6px 0px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--gray);
+}
+
+.sheet-rolltemplate-check .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-bonus_roll .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-advancement .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-attack .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-damage .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-damage_only .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-healing .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even) {
+  background-color: var(--paper);
+  color: var(--black);
+  padding: 6px 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sheet-rolltemplate-check .sheet-rt-footer,
+.sheet-rolltemplate-bonus_roll .sheet-rt-footer,
+.sheet-rolltemplate-advancement .sheet-rt-footer,
+.sheet-rolltemplate-attack .sheet-rt-footer,
+.sheet-rolltemplate-damage .sheet-rt-footer,
+.sheet-rolltemplate-damage_only .sheet-rt-footer,
+.sheet-rolltemplate-healing .sheet-rt-footer {
+  background-color: var(--dark-paper);
+  color: var(--black);
+  padding: 6px 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
   letter-spacing: 1px;
 }
 
@@ -1700,7 +1824,9 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-bonus_roll .sheet-rt-row,
 .sheet-rolltemplate-advancement .sheet-rt-row,
 .sheet-rolltemplate-attack .sheet-rt-row,
-.sheet-rolltemplate-heal .sheet-rt-row {
+.sheet-rolltemplate-damage .sheet-rt-row,
+.sheet-rolltemplate-damage_only .sheet-rt-row,
+.sheet-rolltemplate-healing .sheet-rt-row {
   display: flex;
   justify-content: space-between;
   padding: 6px 12px;
@@ -1711,25 +1837,58 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-bonus_roll .sheet-rt-row:last-of-type,
 .sheet-rolltemplate-advancement .sheet-rt-row:last-of-type,
 .sheet-rolltemplate-attack .sheet-rt-row:last-of-type,
-.sheet-rolltemplate-heal .sheet-rt-row:last-of-type {
-  border-bottom: none;
+.sheet-rolltemplate-damage .sheet-rt-row:last-of-type,
+.sheet-rolltemplate-damage_only .sheet-rt-row:last-of-type,
+.sheet-rolltemplate-healing .sheet-rt-row:last-of-type {
+  border-bottom: none !important;
+}
+
+.sheet-rolltemplate-damage_only .sheet-rt-row.sheet-rt-row-crit-dmg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 6px;
+  background-color: var(--legendary) !important;
+  border-bottom: 1px dashed var(--gray);
+  font-size: 14px;
 }
 
 .sheet-rolltemplate-check .sheet-rt-breakdown-row,
-.sheet-rolltemplate-bonus_roll .sheet-rt-breakdown-row  {
+.sheet-rolltemplate-attack .sheet-rt-breakdown-row,
+.sheet-rolltemplate-damage .sheet-rt-breakdown-row,
+.sheet-rolltemplate-damage_only .sheet-rt-breakdown-row,
+.sheet-rolltemplate-healing .sheet-rt-breakdown-row {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
   padding: 8px 6px;
-  background-color: var(--white);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: var(--white) !important;
+  border-bottom: 1px dashed var(--gray);
+  font-size: 14px;
+}
+
+.sheet-rolltemplate-check .sheet-rt-breakdown-row:nth-of-type(even),
+.sheet-rolltemplate-attack .sheet-rt-breakdown-row:nth-of-type(even),
+.sheet-rolltemplate-damage .sheet-rt-breakdown-row:nth-of-type(even),
+.sheet-rolltemplate-damage_only .sheet-rt-breakdown-row:nth-of-type(even),
+.sheet-rolltemplate-healing .sheet-rt-breakdown-row:nth-of-type(even) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 6px;
+  background-color: var(--paper) !important;
+  border-bottom: 1px dashed var(--gray);
   font-size: 14px;
 }
 
 .sheet-rolltemplate-check .sheet-rt-math-node,
-.sheet-rolltemplate-bonus_roll .sheet-rt-math-node {
+.sheet-rolltemplate-attack .sheet-rt-math-node,
+.sheet-rolltemplate-damage .sheet-rt-math-node,
+.sheet-rolltemplate-damage_only .sheet-rt-math-node,
+.sheet-rolltemplate-healing .sheet-rt-math-node {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1737,7 +1896,10 @@ input[type="checkbox"].dying-skull:checked+span {
 }
 
 .sheet-rolltemplate-check .sheet-rt-math-label,
-.sheet-rolltemplate-bonus_roll .sheet-rt-math-label {
+.sheet-rolltemplate-attack .sheet-rt-math-label,
+.sheet-rolltemplate-damage .sheet-rt-math-label,
+.sheet-rolltemplate-damage_only .sheet-rt-math-label,
+.sheet-rolltemplate-healing .sheet-rt-math-label {
   font-size: 9px;
   text-transform: uppercase;
   color: var(--black);
@@ -1746,7 +1908,10 @@ input[type="checkbox"].dying-skull:checked+span {
 }
 
 .sheet-rolltemplate-check .sheet-rt-math-sign,
-.sheet-rolltemplate-bonus_roll .sheet-rt-math-sign {
+.sheet-rolltemplate-attack .sheet-rt-math-sign,
+.sheet-rolltemplate-damage .sheet-rt-math-sign,
+.sheet-rolltemplate-damage_only .sheet-rt-math-sign,
+.sheet-rolltemplate-healing .sheet-rt-math-sign {
   font-weight: bold;
   font-size: 14px;
   color: var(--black);
@@ -1754,7 +1919,10 @@ input[type="checkbox"].dying-skull:checked+span {
 }
 
 .sheet-rolltemplate-check .sheet-rt-math-total,
-.sheet-rolltemplate-bonus_roll .sheet-rt-math-total {
+.sheet-rolltemplate-attack .sheet-rt-math-total,
+.sheet-rolltemplate-damage .sheet-rt-math-total,
+.sheet-rolltemplate-damage_only .sheet-rt-math-total,
+.sheet-rolltemplate-healing .sheet-rt-math-total {
   background-color: var(--black);
   color: var(--white);
   padding: 4px 6px;
@@ -1762,20 +1930,53 @@ input[type="checkbox"].dying-skull:checked+span {
   font-weight: bold;
 }
 
+.sheet-rolltemplate-healing .sheet-rt-math-total.sheet-rt-healing-highlight{
+  background-color: var(--celestial);
+}
+
 .sheet-rolltemplate-check .sheet-rt-math-total .sheet-rt-math-label,
-.sheet-rolltemplate-bonus_roll .sheet-rt-math-total .sheet-rt-math-label {
+.sheet-rolltemplate-attack .sheet-rt-math-total .sheet-rt-math-label,
+.sheet-rolltemplate-damage .sheet-rt-math-total .sheet-rt-math-label,
+.sheet-rolltemplate-damage_only .sheet-rt-math-total .sheet-rt-math-label,
+.sheet-rolltemplate-healing .sheet-rt-math-total .sheet-rt-math-label {
   color: var(--white);
 }
 
 .sheet-rolltemplate-check .sheet-rt-label,
-.sheet-rolltemplate-bonus_roll .sheet-rt-label {
+.sheet-rolltemplate-bonus_roll .sheet-rt-label,
+.sheet-rolltemplate-advancement .sheet-rt-label,
+.sheet-rolltemplate-attack .sheet-rt-label,
+.sheet-rolltemplate-damage .sheet-rt-label,
+.sheet-rolltemplate-damage_only .sheet-rt-label,
+.sheet-rolltemplate-healing .sheet-rt-label {
   font-weight: bold;
   text-transform: uppercase;
   color: var(--black);
 }
 
+.sheet-rolltemplate-damage_only .sheet-rt-label.sheet-rt-crit-dmg-highlight {
+  color: var(--white);
+  font-weight: 800 !important;
+  font-size: 16px !important;
+}
+
+.sheet-rolltemplate-damage_only .sheet-rt-val.sheet-rt-crit-dmg-highlight {
+  color: var(--white);
+  font-weight: 800 !important;
+  font-size: 16px !important;
+}
+
+.sheet-rolltemplate-damage_only .sheet-rt-math-total.sheet-rt-crit-dmg-highlight {
+  font-weight: 800 !important;
+  font-size: 16px !important;
+}
+
 .sheet-rolltemplate-check .sheet-rt-val,
-.sheet-rolltemplate-bonus_roll .sheet-rt-val {
+.sheet-rolltemplate-bonus_roll .sheet-rt-val,
+.sheet-rolltemplate-attack .sheet-rt-val,
+.sheet-rolltemplate-damage .sheet-rt-val,
+.sheet-rolltemplate-damage_only .sheet-rt-val,
+.sheet-rolltemplate-healing .sheet-rt-val {
   font-weight: bold;
 }
 
@@ -1800,4 +2001,48 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-advancement .sheet-rt-fail-highlight {
   color: var(--red) !important;
   font-weight: 800 !important;
+}
+
+.sheet-rolltemplate-attack .sheet-rt-row-action {
+    display: inline-block !important;
+    position: relative !important;
+    text-align: center !important;
+    width: 100% !important;
+    background: var(--dark-paper) !important;
+    padding: 6px 0px !important;
+    border-bottom: 1px dashed var(--gray);
+}
+
+.sheet-rolltemplate-attack a[href^="~"],
+.sheet-rolltemplate-attack .btn,
+.sheet-rolltemplate-attack .sheet-btn,
+.sheet-rolltemplate-damage_only a[href^="~"],
+.sheet-rolltemplate-damage_only .btn,
+.sheet-rolltemplate-damage_only .sheet-btn {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+    padding: 4px 12px !important;
+    border: 1px solid var(--black) !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-size: 12px !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.1s ease;
+}
+
+.sheet-rolltemplate-attack a[href^="~"]:hover,
+.sheet-rolltemplate-attack .btn:hover,
+.sheet-rolltemplate-attack .sheet-btn:hover,
+.sheet-rolltemplate-damage_only a[href^="~"]:hover,
+.sheet-rolltemplate-damage_only .btn:hover,
+.sheet-rolltemplate-damage_only .sheet-btn:hover {
+    background-color: var(--red) !important;
+    border-color: var(--red) !important;
+    color: var(--black) !important;
+    transform: scale(1.05) !important;
 }

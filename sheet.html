@@ -142,7 +142,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Strength is for lifting, hitting, and crushing things with your brutish meaty muscles. You can carry anything that weighs up to 15 X your Strength Score in pounds.</div>
                 </div>
-                <button type="roll" class="standard-roll offset roll1d20" name="roll_str" value="&{template:check} {{character=@{character_name}}} {{stat=Strength}} {{die=1d20}} {{mod=@{str_mod}}} {{roll=[[1d20 + @{str_mod}]]}}">Strength</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_str" value="&{template:check} {{character=@{character_name}}} {{stat=Strength}} {{die=1d20}} {{mod=@{str_mod}}} {{roll=[[1d20 + 0@{str_mod}]]}} {{roll2=[[1d20 + 0@{str_mod}]]}}">Strength</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -165,7 +165,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Intelligence is how smart you are, how good you are at solving puzzles, and how well you observe and take in your surroundings. It's also used to cast spells, and determines your maximum mana.</div>
                 </div>
-                <button type="roll" class="standard-roll offset roll1d20" name="roll_int" value="&{template:check} {{character=@{character_name}}} {{stat=Intelligence}} {{die=1d20}} {{mod=@{int_mod}}} {{roll=[[1d20 + @{int_mod}]]}}">Intelligence</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_int" value="&{template:check} {{character=@{character_name}}} {{stat=Intelligence}} {{die=1d20}} {{mod=@{int_mod}}} {{roll=[[1d20 + 0@{int_mod}]]}} {{roll2=[[1d20 + 0@{int_mod}]]}}">Intelligence</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -189,7 +189,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Constitution is your durability and resistance to vitality-draining effects, like Poison. It also determines your HB, how long you have to survive when you drop to 0% HB, and how long you can hold your breath.</div>
                 </div>
-                <button type="roll" class="standard-roll offset roll1d20" name="roll_con" value="&{template:check} {{character=@{character_name}}} {{stat=Constitution}} {{die=1d20}} {{mod=@{con_mod}}} {{roll=[[1d20 + @{con_mod}]]}}">Constitution</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_con" value="&{template:check} {{character=@{character_name}}} {{stat=Constitution}} {{die=1d20}} {{mod=@{con_mod}}} {{roll=[[1d20 + 0@{con_mod}]]}} {{roll2=[[1d20 + 0@{con_mod}]]}}">Constitution</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -213,7 +213,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Dexterity is how nimble, agile, and quick on your feet you are. It's used for things like dodging enemies attacks (Evade), some melee attack skills, and most ranged attacks. It's also used to do things like hide from the Mobs when you're feeling like a little bitch.</div>
                 </div>
-                <button type="roll" class="standard-roll offset roll1d20" name="roll_dex" value="&{template:check} {{character=@{character_name}}} {{stat=Dexterity}} {{die=1d20}} {{mod=@{dex_mod}}} {{roll=[[1d20 + @{dex_mod}]]}}">Dexterity</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_dex" value="&{template:check} {{character=@{character_name}}} {{stat=Dexterity}} {{die=1d20}} {{mod=@{dex_mod}}} {{roll=[[1d20 + 0@{dex_mod}]]}} {{roll2=[[1d20 + 0@{dex_mod}]]}}">Dexterity</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -237,7 +237,7 @@
                   <span class="tooltip-icon">i</span>
                   <div class="tooltip-box left">Charisma is how much your presence takes up space in the proverbial room. You might be a sweet, bubbly spirit or a mean, nasty fucker. Either way, you can manipulate Mobs and NPCS into doing what you want, and get better deals at shops.</div>
                 </div>
-                <button type="roll" class="standard-roll offset roll1d20" name="roll_cha" value="&{template:check} {{character=@{character_name}}} {{stat=Charisma}} {{die=1d20}} {{mod=@{cha_mod}}} {{roll=[[1d20 + @{cha_mod}]]}}">Charisma</button>
+                <button type="roll" class="standard-roll offset roll1d20" name="roll_cha" value="&{template:check} {{character=@{character_name}}} {{stat=Charisma}} {{die=1d20}} {{mod=@{cha_mod}}} {{roll=[[1d20 + 0@{cha_mod}]]}} {{roll2=[[1d20 + 0@{cha_mod}]]}}">Charisma</button>
                 <div class="stacked">
                   <div class="side-by-side">
                     <div class="stat-col">
@@ -749,7 +749,7 @@
               </div> <!-- end of Mana -->
 
               <div class="section-container stacked standard-spacing stretch-height grow relative"> <!-- Evade -->
-                <button type="roll" class="standard-roll roll1d20" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + @{evade_total_bonus}]]}}">Evade</button>
+                <button type="roll" class="standard-roll roll1d20" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + 0@{evade_total_bonus}]]}} {{roll2=[[1d20 + 0@{evade_total_bonus}]]}}">Evade</button>
                 <input type="hidden" class="visibility-toggle" name="attr_display_tooltips" value=""/>
                 <div class="tooltip-wrapper absolute top right">
                   <span class="tooltip-icon">i</span>
@@ -887,7 +887,7 @@
                     <input type="text" class="small-input max" value="See skills, attacks, and spells" readonly/>
                   </div>
                   <div class="side-by-side standard-spacing roll-container roll1d20">
-                    <button type="roll" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + @{evade_total_bonus}]]}}"></button>
+                    <button type="roll" name="roll_evade" value="&{template:check} {{character=@{character_name}}} {{action=Evade}} {{die=1d20}} {{mod=@{dex_mod}}} {{bonus=@{evade_buff}}} {{roll=[[1d20 + 0@{evade_total_bonus}]]}} {{roll2=[[1d20 + 0@{evade_total_bonus}]]}}"></button>
                     <input type="text" class="small-input grow" value="Evade" readonly/>
                     <input type="text" class="small-input max" value="Dodge incoming attacks" readonly/>
                   </div>
@@ -923,6 +923,10 @@
             <span class="section-label">Attacks</span>
             <div class="inline">
               <fieldset class="repeating_attacks">
+                <input type="hidden" name="attr_attack_damage_macro" value="">
+                <input type="hidden" name="attr_attack_crit_damage_macro" value="">
+                <input type="hidden" name="attr_has_custom_crit" value="">
+
                 <div class="stacked section-container collapsible-section no-margin stretch-width"> <!-- Attack Row -->
                   <div class="side-by-side standard-spacing"> <!-- Attack Details -->
                     <label class="field max"><input type="text" name="attr_attack_name"><span class="header-label">Name</span></label>
@@ -973,8 +977,10 @@
                     </div> <!-- end description section -->
 
                     <div class="side-by-side standard-spacing"> <!-- To Hit -->
-                      <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[1d20 + @{attack_to_hit_mod} + @{attack_to_hit_bonus} + @{attack_rank}]]}}">To Hit</button>
-                        <label class="field wide">
+                      <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{attack=@{attack_name}}} {{attack_type=@{attack_type}}} {{attack_stat=@{attack_to_hit_stat}}} {{targets=@{attack_targets_range}}} {{cooldown=@{attack_cooldown}}} {{die=1d20}} {{mod=@{attack_to_hit_mod}}} {{bonus=@{attack_to_hit_bonus}}} {{rank=@{attack_rank}}} {{roll=[[1d20 + 0@{attack_to_hit_mod} + 0@{attack_to_hit_bonus} + 0@{attack_rank}]]}} {{roll2=[[1d20 + 0@{attack_to_hit_mod} + 0@{attack_to_hit_bonus} + 0@{attack_rank}]]}} {{short_description=@{attack_description}}} {{damage_macro=@{attack_damage_macro}}} {{crit_damage_macro=@{attack_crit_damage_macro}}}">To Hit</button>
+                      <button type="roll" class="hidden" name="roll_attack_damage_roll" value="&{template:damage_only} {{damage_stat=@{attack_damage_stat}}} {{base_damage=@{attack_damage_base}}} {{damage_type=@{attack_damage_type}}} {{damage_bonus=@{attack_damage_bonus}}} {{damage_mod=@{attack_damage_mod}}} {{damage_roll=[[0@{attack_damage_base} + 0@{attack_damage_mod} + 0@{attack_damage_bonus}]]}}"></button>
+                      <button type="roll" class="hidden" name="roll_attack_crit_damage_roll" value="&{template:damage_only} {{damage_stat=@{attack_damage_stat}}} {{is_crit=1}} {{base_damage=@{attack_damage_base}}} {{crit_damage=@{attack_damage_crit}}} @{has_custom_crit} {{damage_type=@{attack_damage_type}}} {{damage_bonus=@{attack_damage_bonus}}} {{damage_mod=@{attack_damage_mod}}} {{damage_roll=[[0@{attack_damage_base} + 0@{attack_damage_mod} + 0@{attack_damage_bonus}]]}} {{crit_roll_default=[[0@{attack_damage_base}]]}} {{crit_roll=[[0@{attack_damage_crit}]]}}"></button>
+                      <label class="field wide">
                           <select name="attr_attack_to_hit_stat">
                             <option value="strength">Strength</option>
                             <option value="intelligence">Intelligence</option>
@@ -986,12 +992,13 @@
                           <span class="header-label">Stat</span>
                         </label>
                         <label class="field narrow"><input type="number" name="attr_attack_to_hit_mod" readonly><span class="header-label">Mod</span></label>
-                        <label class="field narrow"><input type="text" name="attr_attack_to_hit_bonus"><span class="header-label">Bonus</span></label>
+                        <label class="field narrow"><input type="text" name="attr_attack_to_hit_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                         <label class="field narrow"><input type="number" name="attr_attack_rank" readonly><span class="header-label">Rank</span></label>
                     </div> <!-- end To-Hit-->
                     <div class="side-by-side standard-spacing"> <!-- Damage -->
-                      <button type="roll" class="small-roll narrow" name="roll_damage" value="&{template:damage} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[@{attack_damage_base} + @{attack_damage_bonus} + @{attack_damage_mod}]]}}">Damage</button>
-                      <label class="field narrow"><input type="text" name="attr_attack_damage_base"><span class="header-label">Base Dmg</span></label>
+                      <button type="roll" class="small-roll narrow" name="roll_dmg" value="&{template:damage} {{character=@{character_name}}} {{attack=@{attack_name}}} {{damage_stat=@{attack_damage_stat}}} {{base_damage=@{attack_damage_base}}} {{damage_type=@{attack_damage_type}}} {{bonus=@{attack_damage_bonus}}} {{mod=@{attack_damage_mod}}} {{roll=[[0@{attack_damage_base} + 0@{attack_damage_bonus} + 0@{attack_damage_mod}]]}} {{short_description=@{attack_description}}} ">Damage</button>
+                      <label class="field narrow"><input type="text" name="attr_attack_damage_base" placeholder="none"><span class="header-label">Base Dmg</span></label>
+                      <label class="field narrow"><input type="text" name="attr_attack_damage_crit" placeholder="default"><span class="header-label">Crit Dmg</span></label>
                       <label class="field medium"><input type="text" name="attr_attack_damage_type"><span class="header-label">Type</span></label>
                       <label class="field medium">
                           <select name="attr_attack_damage_stat">
@@ -1005,8 +1012,7 @@
                           <span class="header-label">Stat</span>
                         </label>
                       <label class="field narrow"><input type="number" name="attr_attack_damage_mod" readonly><span class="header-label">Mod</span></label>
-                      <label class="field narrow"><input type="text" name="attr_attack_damage_bonus"><span class="header-label">Bonus</span></label>
-                      <label class="field grow"><input type="text" name="attr_attack_damage_effects"><span class="header-label">Effects</span></label>
+                      <label class="field narrow"><input type="text" name="attr_attack_damage_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                     </div> <!-- end Damage-->
                   </div> <!-- collapsible -->
                 </div>
@@ -1018,6 +1024,10 @@
             <span class="section-label">Spells</span>
             <div class="inline">
               <fieldset class="repeating_spells">
+                <input type="hidden" name="attr_spell_damage_macro" value="">
+                <input type="hidden" name="attr_spell_crit_damage_macro" value="">
+                <input type="hidden" name="attr_has_custom_crit" value="">
+
                 <div class="stacked section-container collapsible-section stretch-width no-margin"> <!-- Spell Row -->
                   <div class="side-by-side standard-spacing"> <!-- Spell Details -->
                     <label class="field grow"><input type="text" name="attr_spell_name"><span class="header-label">Name</span></label>
@@ -1073,7 +1083,9 @@
                     <div class="side-by-side standard-spacing"> <!-- Attack -->
                       <div class="stacked stretch-width"> <!-- stack To Hit and Damage in 2 rows -->
                         <div class="side-by-side standard-spacing"> <!-- To Hit -->
-                          <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[1d20 + @{spell_to_hit_mod} + @{spell_to_hit_bonus} + @{spell_rank}]]}}">To Hit</button>
+                          <button type="roll" class="small-roll narrow" name="roll_to_hit" value="&{template:attack} {{character=@{character_name}}} {{spell=@{spell_name}}} {{attack_stat=@{spell_to_hit_stat}}} {{targets=@{spell_targets_range}}} {{cooldown=@{spell_cooldown}}} {{spell_cost=@{spell_cost}}} {{duration=@{spell_duration}}} {{die=1d20}} {{mod=@{spell_to_hit_mod}}} {{bonus=@{spell_to_hit_bonus}}} {{rank=@{spell_rank}}} {{roll=[[1d20 + 0@{spell_to_hit_mod} + 0@{spell_to_hit_bonus} + 0@{spell_rank}]]}} {{roll2=[[1d20 + 0@{spell_to_hit_mod} + 0@{spell_to_hit_bonus} + 0@{spell_rank}]]}} {{short_description=@{spell_description}}} {{damage_macro=@{spell_damage_macro}}} {{crit_damage_macro=@{spell_crit_damage_macro}}}">To Hit</button>
+                          <button type="roll" class="hidden" name="roll_spell_damage_roll" value="&{template:damage_only} {{damage_stat=@{spell_damage_stat}}} {{base_damage=@{spell_damage_base}}} {{damage_type=@{spell_damage_type}}} {{damage_bonus=@{spell_damage_bonus}}} {{damage_mod=@{spell_damage_mod}}} {{damage_roll=[[0@{spell_damage_base} + 0@{spell_damage_mod} + 0@{spell_damage_bonus}]]}}"></button>
+                          <button type="roll" class="hidden" name="roll_spell_crit_damage_roll" value="&{template:damage_only} {{damage_stat=@{spell_damage_stat}}} {{is_crit=1}} {{base_damage=@{spell_damage_base}}} {{crit_damage=@{spell_damage_crit}}} @{has_custom_crit} {{damage_type=@{spell_damage_type}}} {{damage_bonus=@{spell_damage_bonus}}} {{damage_mod=@{spell_damage_mod}}} {{damage_roll=[[0@{spell_damage_base} + 0@{spell_damage_mod} + 0@{spell_damage_bonus}]]}} {{crit_roll_default=[[0@{spell_damage_base}]]}} {{crit_roll=[[0@{spell_damage_crit}]]}}"></button>
                           <label class="field wide">
                             <select name="attr_spell_to_hit_stat">
                               <option value="strength">Strength</option>
@@ -1086,12 +1098,13 @@
                             <span class="header-label">Stat</span>
                           </label>
                           <label class="field narrow"><input type="number" name="attr_spell_to_hit_mod" readonly><span class="header-label">Mod</span></label>
-                          <label class="field narrow"><input type="text" name="attr_spell_to_hit_bonus"><span class="header-label">Bonus</span></label>
+                          <label class="field narrow"><input type="text" name="attr_spell_to_hit_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                           <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
                         </div> <!-- end To-Hit-->
                         <div class="side-by-side standard-spacing"> <!-- Damage -->
-                          <button type="roll" class="small-roll narrow" name="roll_damage" value="&{template:damage} {{character=@{character_name}}} {{name=@{attack_name}}} {{roll=[[@{spell_damage_base} + @{spell_damage_bonus} + @{spell_damage_mod}]]}}">Damage</button>
-                          <label class="field narrow"><input type="text" name="attr_spell_damage_base"><span class="header-label">Base Dmg</span></label>
+                          <button type="roll" class="small-roll narrow" name="roll_dmg" value="&{template:damage} {{character=@{character_name}}} {{spell=@{spell_name}}} {{damage_stat=@{spell_damage_stat}}} {{base_damage=@{spell_damage_base}}} {{damage_type=@{spell_damage_type}}} {{bonus=@{spell_damage_bonus}}} {{mod=@{spell_damage_mod}}} {{roll=[[0@{spell_damage_base} + 0@{spell_damage_mod} + 0@{spell_damage_bonus}]]}} {{short_description=@{spell_description}}} ">Damage</button>
+                          <label class="field narrow"><input type="text" name="attr_spell_damage_base" placeholder="none"><span class="header-label">Base Dmg</span></label>
+                          <label class="field narrow"><input type="text" name="attr_spell_damage_crit" placeholder="default"><span class="header-label">Crit Dmg</span></label>
                           <label class="field medium"><input type="text" name="attr_spell_damage_type"><span class="header-label">Type</span></label>
                           <label class="field medium">
                               <select name="attr_spell_damage_stat">
@@ -1105,8 +1118,7 @@
                               <span class="header-label">Stat</span>
                             </label>
                           <label class="field narrow"><input type="number" name="attr_spell_damage_mod" readonly><span class="header-label">Mod</span></label>
-                          <label class="field narrow"><input type="text" name="attr_spell_damage_bonus"><span class="header-label">Bonus</span></label>
-                          <label class="field grow"><input type="text" name="attr_spell_damage_effects"><span class="header-label">Effects</span></label>
+                          <label class="field narrow"><input type="text" name="attr_spell_damage_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                         </div> <!-- end Damage-->
                       </div> <!-- end To Hit + Damage-->
                     </div> <!-- end Attack-->
@@ -1114,7 +1126,7 @@
                     <!-- if the spell requires a skill check, display that calculation -->
                     <input type="hidden" name="attr_spell_type_skill_check" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Skill Check -->
-                      <button type="roll" class="small-roll narrow roll1d20" name="roll_spell_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{spell_name}}} {{skill_stat=@{spell_check_stat}}} {{opposed_by=@{spell_check_opposed_stat}}} {{die=1d20}} {{mod=@{spell_check_mod}}} {{bonus=@{spell_check_bonus}}} {{rank=@{spell_rank}}} {{roll=[[1d20 + @{spell_check_mod} + @{spell_check_bonus} + @{spell_rank}]]}}">Check</button>
+                      <button type="roll" class="small-roll narrow roll1d20" name="roll_spell_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{spell_name}}} {{skill_stat=@{spell_check_stat}}} {{opposed_by=@{spell_check_opposed_stat}}} {{die=1d20}} {{mod=@{spell_check_mod}}} {{bonus=@{spell_check_bonus}}} {{rank=@{spell_rank}}} {{roll=[[1d20 + 0@{spell_check_mod} + 0@{spell_check_bonus} + 0@{spell_rank}]]}} {{roll2=[[1d20 + 0@{spell_check_mod} + 0@{spell_check_bonus} + 0@{spell_rank}]]}} {{short_description=@{spell_description}}}">Check</button>
                       <label class="field grow">
                         <select name="attr_spell_check_stat">
                           <option value="strength">Strength</option>
@@ -1139,15 +1151,15 @@
                         <span class="header-label">Opposed By</span>
                       </label>
                       <label class="field narrow"><input type="number" name="attr_spell_check_mod" readonly><span class="header-label">Mod</span></label>
-                      <label class="field narrow"><input type="text" name="attr_spell_check_bonus"><span class="header-label">Bonus</span></label>
+                      <label class="field narrow"><input type="text" name="attr_spell_check_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                       <label class="field narrow"><input type="number" name="attr_spell_rank" readonly><span class="header-label">Rank</span></label>
                     </div> <!-- end Skill Check-->
 
                     <!-- if the spell is a healing skill, display the healing amount -->
                     <input type="hidden" name="attr_spell_type_healing" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Healing -->
-                      <button type="roll" class="small-roll narrow" name="roll_healing" value="&{template:healing} {{character=@{character_name}}} {{name=@{spell_name}}} {{roll=[[@{spell_healing_amount}]]}}">Healing</button>
-                      <label class="field max"><input type="text" name="attr_spell_healing_amount"><span class="header-label">Base Healing</span></label>
+                      <button type="roll" class="small-roll narrow" name="roll_healing" value="&{template:healing} {{character=@{character_name}}} {{spell=@{spell_name}}} {{healing_stat=@{spell_healing_stat}}} {{base_healing=@{spell_healing_base}}} {{mod=@{spell_healing_mod}}} {{bonus=@{spell_healing_bonus}}} {{roll=[[0@{spell_healing_base} + 0@{spell_healing_mod} + 0@{spell_healing_bonus}]]}}">Healing</button>
+                      <label class="field grow"><input type="text" name="attr_spell_healing_base"><span class="header-label">Base Healing</span></label>
                       <label class="field medium">
                         <select name="attr_spell_healing_stat">
                           <option value="strength">Strength</option>
@@ -1160,7 +1172,7 @@
                         <span class="header-label">Stat</span>
                       </label>
                       <label class="field narrow"><input type="number" name="attr_spell_healing_mod" readonly><span class="header-label">Mod</span></label>
-                      <label class="field max"><input type="text" name="attr_spell_healing_effects"><span class="header-label">Effects</span></label>
+                      <label class="field grow"><input type="text" name="attr_spell_healing_bonus" placeholder="none"><span class="header-label">Bonus Healing</span></label>
                     </div> <!-- end Healing -->
                   </div> <!-- end outer collapsible section -->
                 </div>
@@ -1221,7 +1233,7 @@
                   
                     <input type="hidden" name="attr_skill_type_has_check" class="visibility-toggle" value="" />
                     <div class="side-by-side standard-spacing"> <!-- Skill Check -->
-                      <button type="roll" class="small-roll narrow roll1d20" name="roll_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{skill_name}}} {{skill_stat=@{skill_check_stat}}} {{opposed_by=@{skill_check_opposed_by}}} {{die=1d20}} {{mod=@{skill_check_mod}}} {{bonus=@{skill_check_bonus}}} {{rank=@{skill_rank}}} {{roll=[[1d20 + @{skill_check_mod} + @{skill_check_bonus} + @{skill_rank}]]}}">Check</button>
+                      <button type="roll" class="small-roll narrow roll1d20" name="roll_check" value="&{template:check} {{character=@{character_name}}} {{skill=@{skill_name}}} {{skill_stat=@{skill_check_stat}}} {{opposed_by=@{skill_check_opposed_by}}} {{die=1d20}} {{mod=@{skill_check_mod}}} {{bonus=@{skill_check_bonus}}} {{rank=@{skill_rank}}} {{roll=[[1d20 + 0@{skill_check_mod} + 0@{skill_check_bonus} + 0@{skill_rank}]]}} {{roll2=[[1d20 + 0@{skill_check_mod} + 0@{skill_check_bonus} + 0@{skill_rank}]]}} {{short_description=@{skill_description}}}">Check</button>
                       <label class="field grow">
                         <select name="attr_skill_check_stat">
                           <option value="strength" selected>Strength</option>
@@ -1246,7 +1258,7 @@
                         <span class="header-label">Opposed By</span>
                       </label>
                       <label class="field narrow"><input type="number" name="attr_skill_check_mod" readonly><span class="header-label">Mod</span></label>
-                      <label class="field narrow"><input type="text" name="attr_skill_check_bonus"><span class="header-label">Bonus</span></label>
+                      <label class="field narrow"><input type="text" name="attr_skill_check_bonus" placeholder="none"><span class="header-label">Bonus</span></label>
                       <label class="field narrow"><input type="number" name="attr_skill_rank" readonly><span class="header-label">Rank</span></label>
                     </div> <!-- end skill check row -->
                   </div> <!-- end collapsible portion-->

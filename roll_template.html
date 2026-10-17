@@ -7,13 +7,20 @@
       <div>
         {{#skill}}Skill Check: {{skill}}{{/skill}}{{#stat}}Stat Check: {{stat}}{{/stat}}{{#action}}Action: {{action}}{{/action}}
       </div>
-      {{#skill_stat}}<div class="sheet-rt-italics">{{skill_stat}}</div>{{/skill_stat}}
     </div>
+
+    {{#skill_stat}}
+    <div class="sheet-rt-sub-header">
+      <div class="sheet-rt-row">
+        <div class="sheet-rt-italics">{{skill_stat}}</div>
+      </div>
+    </div>
+    {{/skill_stat}}
 
     {{#opposed_by}}
     <div class="sheet-rt-row">
       <span class="sheet-rt-label">Check Opposed By:</span>
-      <span class="sheet-rt-val">{{opposed_by}}</span>
+      <span class="sheet-rt-label">{{opposed_by}}</span>
     </div>
     {{/opposed_by}}
 
@@ -53,6 +60,51 @@
         <span class="sheet-rt-math-label">Total</span>
       </div>
     </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{die}}</span>
+        <span class="sheet-rt-math-label">Dice</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      {{#rank}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{rank}}</span>
+        <span class="sheet-rt-math-label">Rank</span>
+      </div>
+      {{/rank}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{roll2}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+
+    {{#short_description}}
+    <div class="sheet-rt-footer">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{short_description}}</span>
+      </div>
+    </div>
+    {{/short_description}}
   </div>
 </rolltemplate>
 
@@ -98,12 +150,12 @@
       {{/rollTotal() roll roll2}}
     {{/roll2}}
 
-    {{^roll2}}
+    {{#^roll2}}
     <div class="sheet-rt-row">
       <span class="sheet-rt-label">Result:</span>
       <span class="sheet-rt-val">{{roll}}</span>
     </div>
-    {{/roll2}}
+    {{/^roll2}}
   </div>
 </rolltemplate>
 
@@ -131,5 +183,331 @@
         {{#rollLess() roll rank}}<span class="sheet-rt-fail-highlight">ADVANCEMENT FAILED</span>{{/rollLess() roll rank}}
       </span>
     </div>
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-attack">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>
+        {{#attack}}Attack: {{attack}}{{/attack}}
+        {{#spell}}Spell: {{spell}}{{/spell}}
+      </div>
+    </div>
+
+    <div class="sheet-rt-sub-header">
+      {{#attack_type}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{attack_type}}</span>
+        <span class="sheet-rt-italics">{{attack_stat}}</span>
+      </div>
+      {{/attack_type}}
+      {{#^attack_type}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{attack_stat}}</span>
+      </div>
+      {{/^attack_type}}
+      {{#spell_cost}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Mana Cost:</span>
+        <span class="sheet-rt-value">{{mana}}</span>
+      </div>
+      {{/spell_cost}}
+      {{#targets}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Targets and Range:</span>
+        <span class="sheet-rt-value">{{targets}}</span>
+      </div>
+      {{/targets}}
+      {{#cooldown}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Cooldown:</span>
+        <span class="sheet-rt-value">{{cooldown}}</span>
+      </div>
+      {{/cooldown}}
+      {{#duration}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Duration:</span>
+        <span class="sheet-rt-value">{{duration}}</span>
+      </div>
+      {{/duration}}
+    </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{die}}</span>
+        <span class="sheet-rt-math-label">Dice</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      {{#rank}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{rank}}</span>
+        <span class="sheet-rt-math-label">Rank</span>
+      </div>
+      {{/rank}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{die}}</span>
+        <span class="sheet-rt-math-label">Dice</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      {{#rank}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{rank}}</span>
+        <span class="sheet-rt-math-label">Rank</span>
+      </div>
+      {{/rank}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{roll2}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+
+    {{#rollWasCrit() roll}} <!-- Critical Hit on Roll 1 -->
+      {{#rollWasCrit() roll2}} <!-- Critical Hit on Both Rolls (show only critical damage option) -->
+      <div class="sheet-rt-row-action">
+        {{crit_damage_macro}}
+      </div>
+      {{/rollWasCrit() roll2}}
+    {{#^rollWasCrit() roll2}} <!-- Only Crit on Roll 1 (show both options)-->
+      <div class="sheet-rt-row-action">
+        {{crit_damage_macro}}
+        {{damage_macro}}
+      </div>
+    {{/^rollWasCrit() roll2}}
+    {{/rollWasCrit() roll}}
+    {{#^rollWasCrit() roll}} <!-- Not a Crit on Roll 1, but... -->
+      {{#rollWasCrit() roll2}} <!-- Critical Hit on Roll 2 (show both options) -->
+        <div class="sheet-rt-row-action">
+          {{crit_damage_macro}}
+          {{damage_macro}}
+        </div>
+      {{/rollWasCrit() roll2}}
+      {{#^rollWasCrit() roll2}} <!-- Not a Crit on either roll (show only regular damage option) -->
+        <div class="sheet-rt-row-action">
+          {{damage_macro}}
+        </div>
+      {{/^rollWasCrit() roll2}}
+    {{/^rollWasCrit() roll}}
+
+    {{#short_description}}
+    <div class="sheet-rt-footer">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{short_description}}</span>
+      </div>
+    </div>
+    {{/short_description}}
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-damage_only">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-sub-header">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{damage_stat}}</span>
+        <span class="sheet-rt-italics">{{damage_type}}</span>
+      </div>
+    </div>
+
+    {{#is_crit}} <!-- if this was a crit, display the crit damage-->
+      {{#custom_crit}} <!-- if crit damage is defined, use that for the crit roll -->
+        <div class="sheet-rt-row sheet-rt-row-crit-dmg">
+          <span class="sheet-rt-label sheet-rt-crit-dmg-highlight">Crit</span>
+          <span class="sheet-rt-val sheet-rt-crit-dmg-highlight">{{crit_damage}}</span>
+          <span class="sheet-rt-math-total sheet-rt-crit-dmg-highlight">{{crit_roll}}</span>
+        </div>
+      {{/custom_crit}}
+      {{#default_crit}} <!-- if it isn't defined, use the default (base damage die rolled again) -->
+      <div class="sheet-rt-row sheet-rt-row-crit-dmg">
+        <span class="sheet-rt-label sheet-rt-crit-dmg-highlight">Crit</span>
+        <span class="sheet-rt-val sheet-rt-crit-dmg-highlight">{{base_damage}}</span>
+        <span class="sheet-rt-math-total sheet-rt-crit-dmg-highlight">{{crit_roll_default}}</span>
+      </div>
+      {{/default_crit}}
+    {{/is_crit}}
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{base_damage}}</span>
+        <span class="sheet-rt-math-label">Base Dmg</span>
+      </div>
+
+      {{#damage_mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{damage_mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/damage_mod}}
+
+      {{#damage_bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{damage_bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/damage_bonus}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{damage_roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-damage">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>
+        {{#attack}}Attack: {{attack}}{{/attack}}
+        {{#spell}}Spell: {{spell}}{{/spell}}
+      </div>
+    </div>
+
+    <div class="sheet-rt-sub-header">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{damage_stat}}</span>
+        <span class="sheet-rt-italics">{{damage_type}}</span>
+      </div>
+    </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{base_damage}}</span>
+        <span class="sheet-rt-math-label">Base Dmg</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+
+    {{#short_description}}
+    <div class="sheet-rt-footer">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{short_description}}</span>
+      </div>
+    </div>
+    {{/short_description}}
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-healing">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}<div>{{character}}</div>{{/character}}
+      <div>
+        {{#spell}}Spell: {{spell}}{{/spell}}
+      </div>
+    </div>
+
+    <div class="sheet-rt-sub-header">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{healing_stat}}</span>
+      </div>
+    </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{base_healing}}</span>
+        <span class="sheet-rt-math-label">Base Healing</span>
+      </div>
+
+      {{#mod}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{mod}}</span>
+        <span class="sheet-rt-math-label">Mod</span>
+      </div>
+      {{/mod}}
+
+      {{#bonus}}
+      <span class="sheet-rt-math-sign">+</span>
+      <div class="sheet-rt-math-node">
+        <span class="sheet-rt-val">{{bonus}}</span>
+        <span class="sheet-rt-math-label">Bonus</span>
+      </div>
+      {{/bonus}}
+
+      <span class="sheet-rt-math-sign">=</span>
+      <div class="sheet-rt-math-node sheet-rt-math-total sheet-rt-healing-highlight">
+        <span class="sheet-rt-val">{{roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+    </div>
+    
+    {{#short_description}}
+    <div class="sheet-rt-footer">
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-italics">{{short_description}}</span>
+      </div>
+    </div>
+    {{/short_description}}
   </div>
 </rolltemplate>

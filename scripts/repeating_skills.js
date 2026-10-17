@@ -14,6 +14,7 @@ function manageSkills(attrs) {
             idarray.forEach(rowId => {
                 let skillTypeKey = `${sectionName}_${rowId}_skill_type`;
                 let checkStatKey = `${sectionName}_${rowId}_skill_check_stat`;
+                let checkModKey = `${sectionName}_${rowId}_skill_check_mod`;
                 
                 let skillType = values[skillTypeKey];
 
@@ -24,8 +25,7 @@ function manageSkills(attrs) {
                 }
                 
                 let checkMod = getModForKey(checkStatKey, values);
-
-                out[`${sectionName}_${rowId}_skill_check_mod`] = checkMod;
+                out[checkModKey] = checkMod;
             });
 
             setAttrs(out);
