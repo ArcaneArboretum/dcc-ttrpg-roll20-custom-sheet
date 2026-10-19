@@ -90,7 +90,7 @@ No AI was knowingly used to create this sheet. I say knowingly because I recogni
      
 ## Known Issues
 * The External Buffs and Debuffs rows do not expand properly when the sheet is made wider. The instances of buffs / debuffs in the fieldset do not lineup with the headers when these sections are expanded.
-* The intervene roll is not currently displaying the roll results in the chat correctly.
+* Skill advancement check button clip with the dropdown row when the sheet is at default width or narrower.
 
 ## Planned Features (TBD)
 * Add a setting to remove the rainbow background from the Dying box for better accessibility.
