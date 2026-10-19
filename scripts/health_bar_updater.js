@@ -85,14 +85,11 @@ function updateHealthBar(targetAttributes, eventInfo) {
             let originalLevel = parseInt(eventInfo.previousValue) || 0;
             let newLevel = parseInt(eventInfo.newValue) || 0;
 
-            if(healthBarMaxOverride === originalLevel) {
-                if(newLevel >= DEFAULT_HB_SEGMENTS) {
-                    totalSegments = DEFAULT_HB_SEGMENTS;
-                } else if (newLevel <= 0) {
-                    totalSegments = DEFAULT_HB_SEGMENTS;
-                } else {
-                    totalSegments = newLevel;
-                }
+            // update the totalSegments in the following conditions:
+            // 1. the original level was never set (setting level for the first time)
+            // 2. the healthBar segments currently set are = the original level before the change AND the new level is at or below 10 (since mobs above level 10 still have 10 HB slots).
+            if(originalLevel === 0 || (healthBarMaxOverride === originalLevel && newLevel <= DEFAULT_HB_SEGMENTS)) {
+                totalSegments = newLevel;
             }
         }
 
