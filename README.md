@@ -3,10 +3,9 @@ Custom Sheet for the Dungeon Crawler Carl TTRPG (WIP - First Draft is Complete)
 
 Working on a custom roll20 sheet to use for the Dungeon Crawler Carl TTRPG game by Renegade Studios in roll20, since there is no official module for DCC yet.
 
-The sheet is intended to support Player Characters, NPCs, Pets, and Vehicles, but only the Player Characters portion is complete at the moment.
+This is a solo project, and I am still learning how to code in HTML/CSS/JavaScript, so please excuse any weird or non-standard design patterns / architectures. I have lots of prior programming experience, but NONE in HTML/CSS/JavaScript. This Project is also done for me to learn how to work with these languages.
 
-This is a solo project, and I am still learning how to code in HTML/CSS/JavaScript, so please excuse any weird or non-standard design patterns / architectures. I have lots of prior programming experience, but NONE in HTML/CSS/JavaScript.
-
+## How to Use This Sheet in Your Games
 If you're interested in using this sheet yourself, download the repo, run build_sheet.py (using the provided build_sheet.bat or manually), then copy the output sheet_compiled.html into the Roll20 custom sheet 'HTML Layout' tab on the Campaign Settings Page after selecting "Character Sheet Template" -> "Custom". Then copy the sheet.css contents into the CSS Styling tab. Click Save Changes, and you should be able to see the sheet render in your game.
 
 ## No AI Disclaimer
@@ -53,19 +52,45 @@ No AI was knowingly used to create this sheet. I say knowingly because I recogni
     * Actions in Combat - this section lists the actions and interrupts you can take in combat. There are default ones included for all crawlers, and then you can create any number of additional rows as needed for your specific actions / interrupts you have access to (like the Catcher skill, as one example).
       * The Actions included by default are: Use a Skill, Move, Fetch and Item, Use an Item, Loot for Clues, and Call a Play. The Call a Play action comes with a button prompt that sends 2 1d6 rolls to the chat and highlights the higher of the 2 rolls to use as your Call a Play bonus.
       * The Interrupts included by default are: Interrupt Skills, Evade (including a rollable button that does the same thing as the Evade button from earlier), Intervene (which sends a 1d6 roll to chat to use as your Intervene bonus), and Healing.
-  * Skills Page (Description is a WIP)
-  * Inventory Page (Description is a WIP)
-  * Info Page (Description is a WIP)
-  * Achievements Page (Description is a WIP)
-  * Notes Page (Description is a WIP)
+  * Skills Page
+    * Attack Skills section - contains a space to write all your attack skills, including their name, rank, attack type (melee, ranged, damage effect, thrown, or other), the AI Favor they grant when using them predominantly in combat, the current acrued grinding hours on the skill, and a mark box to indicate that the skill is eligible to be advanced. If the box is checked, an Advance button prompt is shown that rolls 1d20 and compares the result to the current rank of the skill, posting the result in chat whether you rank up or not.
+      * Additionally, each Attack has a dropdown to provide more information, including the attacks cooldown (if any), a brief description, the related stat for To Hit and Damage rolls, the base damage, a critical damage override option, the damage type, and any bonuses to the to hit or damage.
+      * A second dropdown allows you to enter a full description of the skill along with any notes.
+      * 2 roll buttons are provided for the attack - one To Hit button, which rolls 1d20 and adds relevant bonuses and modifiers based on user selection and provides a button prompt within the chat to then roll damage. If either of the 2 results is a critical hit, a button prompt is shown to roll critical damage, which adds the default critical damage or the override (if provided) to the damage output. By default, critical damage rolls the base damage dice again as additional damage for the attack.
+      * The damage button simply rolls the base damage with any relevant bonuses and provides the character / attack information, such as targets, range, and description to the chat box output. It is not currently possible to roll critical damage directly from the sheet.
+    * Spell Skills section - much like the attack skills section, only it provides additional entries for mana cost, duration, and spell type - such as Attack for spells that deal damage, Skill Check for spells that require a skill check, Passive for spells that provide direct utility without a skill roll, Healing for spells that give Healing, and Other for unique spells that may provide attacks and require skill checks or otherwise dont follow the usual rules.
+      * Each spell type displays corresponding button prompts to provide roll outputs to the chat.
+    * Utility Skills section - similar to attacks and spells, but unique to skills that provide some utility. Includes a dropdown for the check type (Unopposed, Opposed, Passive, or Other), and provides a button prompt to roll the associated skill check in the chat.
+  * Inventory Page
+    * Hotlist Slots - 10 fixed slots to write items in your hotlist.
+    * Equipped Gear - space to write all of your equipped gear pieces by slot, including accessories (you can add more than 10, but only the top 10 should be considered equipped)
+    * Inventory - space to write down everything else in your inventory. By default, this is very limited, but crawlers with the Determine Value skill can write relative or GP values along with each time, and a "Hide Inventory Tabs" option in the settings lets you expand the inventory to include tabs for Gear, Consumables, Quest Items, Loot Boxes, and a History tab. Its the honor system that players dont use the value section or the tabbed inventory without the Detect Value skill at the appropriate level.
+    * Misc Junk - space to track the accumulated Misc. Junk
+    * Resources - intended for renewable item resources and other limited use abilities that refresh after a certain period.
+  * Info Page - a catchall page for various information about the character, such as
+    * Past Trauma, Loose Ends, Regrets
+    * Party Members, Guilds/Societies/Club Memberships, Deity
+    * Sponsors (starting on floor 4)
+    * Racial abilities
+    * Class abilities (starting on floor 3)
+    * Personal Space (starting on floor 4)
+    * Mercs and Minions (starting on floor 4)
+    * Important kills
+      * This section is where a characters player killer skulls, boss stars, and hunter killer daggers are calculated from. players track things theyve last hit (like bosses, other crawlers, etc.) and the emblems in the header automatically update their count.
+  * Achievements Page - a fairly simple page to track earned achievements.
+  * Notes Page - a place for players to track any important messages they've sent/received, quests they have completed (or are currently undergoing), and general notes.
 * An NPC/Mob/Boss sheet (Description is a WIP)
+  * Simpler version of the main crawler sheet that provides a single page view for running mobs / NPCs. Shows stats, DCs for various actions, and a space to write attacks and other notes. Provides a roll button for damage for each attack (otherwise, no rolls are provided because NPCs/Mobs dont make checks).
 * A GMC Sheet (Description is a WIP)
+  * Very similar to the NPC sheet but provides a bit more in the header for tracking their crawler number, race/class, and relevant emblems (like player killer skulls) that might be important for players to know about.
 * A Pet Sheet (Description is a WIP)
+  * Similar to NPC sheet but contains rolls for stats and actions like Evade and Attacks.
 * A Vehicle Sheet (Description is a WIP)
+  * Similar to pet sheet but only lists notes and other details relevant to vehicles/mounts (like occupancy).
      
 ## Known Issues
 * The External Buffs and Debuffs rows do not expand properly when the sheet is made wider. The instances of buffs / debuffs in the fieldset do not lineup with the headers when these sections are expanded.
-* The intervene roll is not currently displaying the roll results.
+* The intervene roll is not currently displaying the roll results in the chat correctly.
 
 ## Planned Features (TBD)
 * Add a setting to remove the rainbow background from the Dying box for better accessibility.
