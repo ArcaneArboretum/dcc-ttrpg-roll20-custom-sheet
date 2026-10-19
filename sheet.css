@@ -37,6 +37,29 @@
   --purple-highlight: #85458f;
 }
 
+/** SHEET-TYPE **/
+.npc-sheet,
+.gmc-sheet,
+.player-sheet,
+.pet-sheet,
+.vehicle-sheet {
+  display: none !important;
+  background: var(--paper) !important;
+  gap: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+input.sheet-type-mirror[value="1"]~.npc-sheet,
+input.sheet-type-mirror[value="2"]~.gmc-sheet,
+input.sheet-type-mirror[value="3"]~.player-sheet,
+input.sheet-type-mirror[value="4"]~.pet-sheet,
+input.sheet-type-mirror[value="5"]~.vehicle-sheet {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
 input[type="text"],
 input[type="number"] {
   font-family: inherit !important;
@@ -433,6 +456,11 @@ button[type="roll"]:hover::before {
   bottom: 0 !important;
 }
 
+.bottom-padding {
+  padding-bottom: 10px !important;
+}
+
+
 .align-center {
   align-items: center !important;
 }
@@ -543,6 +571,10 @@ input[type="radio"].standard-selection {
 
 .standard-spacing {
   gap: 5px;
+}
+
+.wide-spacing {
+  gap: 15px;
 }
 
 .side-by-side.stretch-height {
@@ -1008,9 +1040,25 @@ button.offset {
   left: 600px !important;
 }
 
-.tab.tab7 {
-  right: 0px !important;
+input[type="checkbox"].settings-check {
+  display: block !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
   width: 30px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+  z-index: 999 !important;
+}
+
+.settings-check:hover+.tab-label {
+  background: var(--red-highlight) !important;
+}
+
+.settings-check:checked+.tab-label {
+  background: var(--black) !important;
 }
 
 .tab-label {
@@ -1028,10 +1076,12 @@ button.offset {
   pointer-events: none;
 }
 
-.tab-label.tab7 {
-  float: right;
-  width: 30px;
-  height: 30px;
+.tab-label.settings-tab {
+  position: absolute !important;
+  background: var(--red) !important;
+  right: 0px !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 
 .tab:hover+.tab-label {
@@ -1194,6 +1244,20 @@ input.inventory-value-display-mirror[value="3"]~.inventory-value-display.display
   align-items: flex-start;
 }
 
+.npc-page {
+  display: flex !important;
+  gap: 5px !important;
+  background: var(--paper) !important;
+  align-items: flex-start;
+}
+
+.npc-page > * {
+  border-bottom: 2px solid var(--line) !important;;
+}
+
+.npc-page > :last-child {
+  border-bottom: none !important;
+}
 /* ============ OVERVIEW PAGE ============ */
 
 .overview-main {
@@ -1359,6 +1423,10 @@ input[type="number"].seg-val {
   display: none !important;
 }
 
+.invisible {
+  opacity: 0 !important;
+}
+
 /* Hide Health Segments and Labels Dynamically */
 input[type="hidden"].visibility-toggle[value="hidden"]+*,
 input[type="hidden"].visibility-toggle[value="1"]+* {
@@ -1468,7 +1536,10 @@ input[type="checkbox"].dying-skull:checked+span {
 .repcontainer[data-groupname="repeating_achievements"],
 .repcontainer[data-groupname="repeating_messages"],
 .repcontainer[data-groupname="repeating_quests"],
-.repcontainer[data-groupname="repeating_notes"] {
+.repcontainer[data-groupname="repeating_notes"],
+.repcontainer[data-groupname="repeating_npc-attacks"],
+.repcontainer[data-groupname="repeating_npc-notes"],
+.repcontainer[data-groupname="repeating_pet-attacks"] {
   display: block;
 }
 
@@ -1487,6 +1558,19 @@ input[type="checkbox"].dying-skull:checked+span {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+}
+
+
+.repcontainer[data-groupname="repeating_npc-attacks"] .repitem,
+.repcontainer[data-groupname="repeating_npc-notes"] .repitem,
+.repcontainer[data-groupname="repeating_pet-attacks"] .repitem {
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.repcontainer[data-groupname="repeating_npc-attacks"] .repitem:last-of-type,
+.repcontainer[data-groupname="repeating_npc-notes"] .repitem:last-of-type,
+.repcontainer[data-groupname="repeating_pet-attacks"] .repitem:last-of-type {
+  border-bottom: none !important;
 }
 
 .repcontrol_edit {
@@ -1623,6 +1707,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-container,
 .sheet-rolltemplate-damage .sheet-rt-container,
 .sheet-rolltemplate-damage_only .sheet-rt-container,
+.sheet-rolltemplate-npc_damage .sheet-rt-container,
 .sheet-rolltemplate-healing .sheet-rt-container {
   font-family: 'Arial Narrow', 'Impact', 'Trebuchet MS', sans-serif;
   border: 2px solid var(--line);
@@ -1680,6 +1765,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-advancement .sheet-rt-container > :first-child,
 .sheet-rolltemplate-attack .sheet-rt-container > :first-child,
 .sheet-rolltemplate-damage .sheet-rt-container > :first-child,
+.sheet-rolltemplate-npc_damage .sheet-rt-container > :first-child,
 .sheet-rolltemplate-healing .sheet-rt-container > :first-child {
   border-top: none !important;
   border-top-left-radius: 5px !important;
@@ -1691,6 +1777,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-advancement .sheet-rt-container > :last-child,
 .sheet-rolltemplate-damage .sheet-rt-container > :last-child,
 .sheet-rolltemplate-damage_only .sheet-rt-container > :last-child,
+.sheet-rolltemplate-npc_damage .sheet-rt-container > :last-child,
 .sheet-rolltemplate-healing .sheet-rt-container > :last-child {
   border-bottom: none !important;
   border-bottom-left-radius: 5px !important;
@@ -1703,6 +1790,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .inlinerollresult,
 .sheet-rolltemplate-damage .inlinerollresult,
 .sheet-rolltemplate-damage_only .inlinerollresult,
+.sheet-rolltemplate-npc_damage .inlinerollresult,
 .sheet-rolltemplate-healing .inlinerollresult {
   background-color: transparent !important;
   border: none !important;
@@ -1718,6 +1806,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .inlinerollresult.fullfail,
 .sheet-rolltemplate-damage .inlinerollresult.fullfail,
 .sheet-rolltemplate-damage_only .inlinerollresult.fullfail,
+.sheet-rolltemplate-npc_damage .inlinerollresult.fullfail,
 .sheet-rolltemplate-healing .inlinerollresult.fullfail {
     background-color: var(--red-highlight) !important;
     border: 2px solid var(--red-dark) !important;
@@ -1733,6 +1822,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .inlinerollresult.fullcrit,
 .sheet-rolltemplate-damage .inlinerollresult.fullcrit,
 .sheet-rolltemplate-damage_only .inlinerollresult.fullcrit,
+.sheet-rolltemplate-npc_damage .inlinerollresult.fullcrit,
 .sheet-rolltemplate-healing .inlinerollresult.fullcrit {
     background-color: var(--green-highlight) !important;
     border: 2px solid var(--green-dark) !important;
@@ -1748,6 +1838,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-italics,
 .sheet-rolltemplate-damage .sheet-rt-italics,
 .sheet-rolltemplate-damage_only .sheet-rt-italics,
+.sheet-rolltemplate-npc_damage .sheet-rt-italics,
 .sheet-rolltemplate-healing .sheet-rt-italics {
   font-style: italic !important;
 }
@@ -1758,6 +1849,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-header,
 .sheet-rolltemplate-damage .sheet-rt-header,
 .sheet-rolltemplate-damage_only .sheet-rt-header,
+.sheet-rolltemplate-npc_damage .sheet-rt-header,
 .sheet-rolltemplate-healing .sheet-rt-header {
   background-color: var(--black);
   color: var(--white);
@@ -1775,6 +1867,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-sub-header,
 .sheet-rolltemplate-damage .sheet-rt-sub-header,
 .sheet-rolltemplate-damage_only .sheet-rt-sub-header,
+.sheet-rolltemplate-npc_damage .sheet-rt-sub-header,
 .sheet-rolltemplate-healing .sheet-rt-sub-header {
   background-color: var(--dark-paper);
   color: var(--black);
@@ -1793,6 +1886,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
 .sheet-rolltemplate-damage .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
 .sheet-rolltemplate-damage_only .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
+.sheet-rolltemplate-npc_damage .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even),
 .sheet-rolltemplate-healing .sheet-rt-sub-header .sheet-rt-row:nth-of-type(even) {
   background-color: var(--paper);
   color: var(--black);
@@ -1810,6 +1904,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-footer,
 .sheet-rolltemplate-damage .sheet-rt-footer,
 .sheet-rolltemplate-damage_only .sheet-rt-footer,
+.sheet-rolltemplate-npc_damage .sheet-rt-footer,
 .sheet-rolltemplate-healing .sheet-rt-footer {
   background-color: var(--dark-paper);
   color: var(--black);
@@ -1826,6 +1921,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-row,
 .sheet-rolltemplate-damage .sheet-rt-row,
 .sheet-rolltemplate-damage_only .sheet-rt-row,
+.sheet-rolltemplate-npc_damage .sheet-rt-row,
 .sheet-rolltemplate-healing .sheet-rt-row {
   display: flex;
   justify-content: space-between;
@@ -1839,6 +1935,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-row:last-of-type,
 .sheet-rolltemplate-damage .sheet-rt-row:last-of-type,
 .sheet-rolltemplate-damage_only .sheet-rt-row:last-of-type,
+.sheet-rolltemplate-npc_damage .sheet-rt-row:last-of-type,
 .sheet-rolltemplate-healing .sheet-rt-row:last-of-type {
   border-bottom: none !important;
 }
@@ -1858,6 +1955,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-breakdown-row,
 .sheet-rolltemplate-damage .sheet-rt-breakdown-row,
 .sheet-rolltemplate-damage_only .sheet-rt-breakdown-row,
+.sheet-rolltemplate-npc_damage .sheet-rt-breakdown-row,
 .sheet-rolltemplate-healing .sheet-rt-breakdown-row {
   display: flex;
   justify-content: center;
@@ -1873,6 +1971,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-breakdown-row:nth-of-type(even),
 .sheet-rolltemplate-damage .sheet-rt-breakdown-row:nth-of-type(even),
 .sheet-rolltemplate-damage_only .sheet-rt-breakdown-row:nth-of-type(even),
+.sheet-rolltemplate-npc_damage .sheet-rt-breakdown-row:nth-of-type(even),
 .sheet-rolltemplate-healing .sheet-rt-breakdown-row:nth-of-type(even) {
   display: flex;
   justify-content: center;
@@ -1888,6 +1987,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-math-node,
 .sheet-rolltemplate-damage .sheet-rt-math-node,
 .sheet-rolltemplate-damage_only .sheet-rt-math-node,
+.sheet-rolltemplate-npc_damage .sheet-rt-math-node,
 .sheet-rolltemplate-healing .sheet-rt-math-node {
   display: flex;
   flex-direction: column;
@@ -1899,6 +1999,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-math-label,
 .sheet-rolltemplate-damage .sheet-rt-math-label,
 .sheet-rolltemplate-damage_only .sheet-rt-math-label,
+.sheet-rolltemplate-npc_damage .sheet-rt-math-label,
 .sheet-rolltemplate-healing .sheet-rt-math-label {
   font-size: 9px;
   text-transform: uppercase;
@@ -1911,6 +2012,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-math-sign,
 .sheet-rolltemplate-damage .sheet-rt-math-sign,
 .sheet-rolltemplate-damage_only .sheet-rt-math-sign,
+.sheet-rolltemplate-npc_damage .sheet-rt-math-sign,
 .sheet-rolltemplate-healing .sheet-rt-math-sign {
   font-weight: bold;
   font-size: 14px;
@@ -1922,6 +2024,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-math-total,
 .sheet-rolltemplate-damage .sheet-rt-math-total,
 .sheet-rolltemplate-damage_only .sheet-rt-math-total,
+.sheet-rolltemplate-npc_damage .sheet-rt-math-total,
 .sheet-rolltemplate-healing .sheet-rt-math-total {
   background-color: var(--black);
   color: var(--white);
@@ -1938,6 +2041,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-math-total .sheet-rt-math-label,
 .sheet-rolltemplate-damage .sheet-rt-math-total .sheet-rt-math-label,
 .sheet-rolltemplate-damage_only .sheet-rt-math-total .sheet-rt-math-label,
+.sheet-rolltemplate-npc_damage .sheet-rt-math-total .sheet-rt-math-label,
 .sheet-rolltemplate-healing .sheet-rt-math-total .sheet-rt-math-label {
   color: var(--white);
 }
@@ -1948,6 +2052,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-label,
 .sheet-rolltemplate-damage .sheet-rt-label,
 .sheet-rolltemplate-damage_only .sheet-rt-label,
+.sheet-rolltemplate-npc_damage .sheet-rt-label,
 .sheet-rolltemplate-healing .sheet-rt-label {
   font-weight: bold;
   text-transform: uppercase;
@@ -1976,6 +2081,7 @@ input[type="checkbox"].dying-skull:checked+span {
 .sheet-rolltemplate-attack .sheet-rt-val,
 .sheet-rolltemplate-damage .sheet-rt-val,
 .sheet-rolltemplate-damage_only .sheet-rt-val,
+.sheet-rolltemplate-npc_damage .sheet-rt-val,
 .sheet-rolltemplate-healing .sheet-rt-val {
   font-weight: bold;
 }
@@ -2015,10 +2121,7 @@ input[type="checkbox"].dying-skull:checked+span {
 
 .sheet-rolltemplate-attack a[href^="~"],
 .sheet-rolltemplate-attack .btn,
-.sheet-rolltemplate-attack .sheet-btn,
-.sheet-rolltemplate-damage_only a[href^="~"],
-.sheet-rolltemplate-damage_only .btn,
-.sheet-rolltemplate-damage_only .sheet-btn {
+.sheet-rolltemplate-attack .sheet-btn {
     background-color: var(--black) !important;
     color: var(--white) !important;
     padding: 4px 12px !important;
@@ -2037,10 +2140,7 @@ input[type="checkbox"].dying-skull:checked+span {
 
 .sheet-rolltemplate-attack a[href^="~"]:hover,
 .sheet-rolltemplate-attack .btn:hover,
-.sheet-rolltemplate-attack .sheet-btn:hover,
-.sheet-rolltemplate-damage_only a[href^="~"]:hover,
-.sheet-rolltemplate-damage_only .btn:hover,
-.sheet-rolltemplate-damage_only .sheet-btn:hover {
+.sheet-rolltemplate-attack .sheet-btn:hover {
     background-color: var(--red) !important;
     border-color: var(--red) !important;
     color: var(--black) !important;

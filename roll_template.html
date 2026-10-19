@@ -402,6 +402,38 @@
   </div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-npc_damage">
+  <div class="sheet-rt-container">
+    <div class="sheet-rt-header">
+      {{#character}}
+      <div>
+        {{character}}
+      </div>
+      {{/character}}
+      {{#attack}}
+      <div>
+        {{attack}}
+      </div>
+      {{/attack}}
+    </div>
+
+    <div class="sheet-rt-breakdown-row">
+      <span class="sheet-rt-italics">{{targets}}</span>
+
+      <div class="sheet-rt-math-node sheet-rt-math-total">
+        <span class="sheet-rt-val">{{damage_roll}}</span>
+        <span class="sheet-rt-math-label">Total</span>
+      </div>
+
+      <span class="sheet-rt-italics">{{damage_type}}</span>
+    </div>
+
+    <div class="sheet-rt-footer">
+      <span class="sheet-rt-italics">{{effects}}</span>
+    </div>
+  </div>
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-damage">
   <div class="sheet-rt-container">
     <div class="sheet-rt-header">

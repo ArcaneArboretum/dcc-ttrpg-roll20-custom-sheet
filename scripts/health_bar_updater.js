@@ -49,29 +49,60 @@ function updateDyingChecks(targetAttributes) {
 // Monitor layout adjustments across checkboxes, values, changes, and configurations
 const HB_CHECK_TRIGGERS = HB_SEGMENTS_COUNTER.map(i => `change:health_seg_${i}_checked`).join(' ');
 const HB_OVERRIDE_TRIGGERS = HB_SEGMENTS_COUNTER.map(i => `change:health_seg_${i}_override`).join(' ');
-const HB_CORE_TRIGGERS = 'sheet:opened change:health_bar_slots_max change:con_mod change:rounds_before_death_override';
+const HB_CORE_TRIGGERS = 'sheet:opened change:health_bar_slots_max change:con_mod change:rounds_before_death_override change:sheet_type change:level';
 
 const HB_TARGET_ATTRIBUTES = [
     'health_bar_slots_max',
     'con_mod',
     'rounds_before_death_override',
     'rounds_before_death',
+    'sheet_type',
+    'level',
     ...HB_SEGMENTS_COUNTER.map(i => `health_seg_${i}_checked`),
     ...HB_SEGMENTS_COUNTER.map(i => `health_seg_${i}_override`)
 ];
 
 function updateHealthBar(targetAttributes, eventInfo) {
     getAttrs(targetAttributes, function(values) {
+        let updateAttrs = {};
         const CON_MOD = parseInt(values.con_mod) || DEFAULT_MODIFIER;
-        let totalSegments = parseInt(values.health_bar_slots_max) || DEFAULT_HB_SEGMENTS;
-        
+
+        // NPC sheets include sheet_type 1 or 2
+        // Sheet Type 1 == "NPC, Boss, Mob, etc."
+        // Sheet Type 2 == "GMC"
+        // Sheet Type 3 == "Crawler"
+        // Sheet Type 4 == "Pet"
+        // Sheet Tpye 5 == "Vehicle"
+        let isNpcSheet = [1,2].includes(parseInt(values.sheet_type));
+
+        let healthBarMaxOverride = parseInt(values.health_bar_slots_max) || DEFAULT_HB_SEGMENTS;
+
+        let totalSegments = healthBarMaxOverride;
+
+        // by default, Mobs, NPCs, etc. use their level as the number of HB segments, instead of a fixed 10.
+        // so, if the level was changed on an NPC sheet, update the health segments to reflect the level so long as the override isn't set to something different
+        if(isNpcSheet && eventInfo && eventInfo.sourceAttribute && eventInfo.sourceAttribute === 'level') {
+            let originalLevel = parseInt(eventInfo.previousValue) || 0;
+            let newLevel = parseInt(eventInfo.newValue) || 0;
+
+            if(healthBarMaxOverride === originalLevel) {
+                if(newLevel >= DEFAULT_HB_SEGMENTS) {
+                    totalSegments = DEFAULT_HB_SEGMENTS;
+                } else if (newLevel <= 0) {
+                    totalSegments = DEFAULT_HB_SEGMENTS;
+                } else {
+                    totalSegments = newLevel;
+                }
+            }
+        }
+
         if (totalSegments > MAX_HB_SEGMENTS) totalSegments = MAX_HB_SEGMENTS;
         if (totalSegments < 1) totalSegments = 1;
 
+        updateAttrs['health_bar_slots_max'] = totalSegments;
+
         let totalRoundsBeforeDeath = parseInt(values.rounds_before_death_override) || CON_MOD;
 
-        let updateAttrs = {};
-        updateAttrs['health_bar_slots_max'] = totalSegments;
         updateAttrs['rounds_before_death_total'] = totalRoundsBeforeDeath;
         
         let highestUnchecked = 0;

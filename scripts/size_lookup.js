@@ -1,7 +1,7 @@
 /* Lookups Size Names According to Integer Value using DCC Table Rules */
 
 const SIZE_CORE_TRIGGERS = 'sheet:opened change:size';
-const SIZE_TARGET_ATTRIBUTES = ['size']
+const SIZE_TARGET_ATTRIBUTES = ['size'];
 
 // lookup the appropriate stat modifier given a score value
 function sizeNameLookup(sizeValue) {

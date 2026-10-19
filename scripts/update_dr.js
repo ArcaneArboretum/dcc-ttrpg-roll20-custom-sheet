@@ -2,7 +2,7 @@
 /* Also bounds the min/max floor numbers so players can't break the sheet. */
 
 const DR_CORE_TRIGGERS = 'sheet:opened change:dr_armor change:dr_buff';
-const DR_TARGET_ATTRIBUTES = ['dr_armor', 'dr_buff']
+const DR_TARGET_ATTRIBUTES = ['dr_armor', 'dr_buff'];
 
 // update modifiers for a given set of score attributes
 function updateDRTotal(attrs) {

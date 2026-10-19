@@ -2,7 +2,7 @@
 /* Also bounds the min/max floor numbers so players can't break the sheet. */
 
 const EVADE_CORE_TRIGGERS = 'sheet:opened change:dex_mod change:evade_buff';
-const EVADE_TARGET_ATTRIBUTES = ['dex_mod', 'evade_buff']
+const EVADE_TARGET_ATTRIBUTES = ['dex_mod', 'evade_buff'];
 
 // update modifiers for a given set of score attributes
 function updateEvadeTotal(attrs) {
