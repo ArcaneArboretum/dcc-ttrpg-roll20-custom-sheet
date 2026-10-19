@@ -150,12 +150,12 @@
       {{/rollTotal() roll roll2}}
     {{/roll2}}
 
-    {{#^roll2}}
-    <div class="sheet-rt-row">
-      <span class="sheet-rt-label">Result:</span>
-      <span class="sheet-rt-val">{{roll}}</span>
-    </div>
-    {{/^roll2}}
+    {{^roll2}}
+      <div class="sheet-rt-row">
+        <span class="sheet-rt-label">Result:</span>
+        <span class="sheet-rt-val">{{roll}}</span>
+      </div>
+    {{/roll2}}
   </div>
 </rolltemplate>
 
@@ -197,17 +197,12 @@
     </div>
 
     <div class="sheet-rt-sub-header">
-      {{#attack_type}}
       <div class="sheet-rt-row">
-        <span class="sheet-rt-italics">{{attack_type}}</span>
+        {{#attack_type}}
+          <span class="sheet-rt-italics">{{attack_type}}</span>
+        {{/attack_type}}
         <span class="sheet-rt-italics">{{attack_stat}}</span>
       </div>
-      {{/attack_type}}
-      {{#^attack_type}}
-      <div class="sheet-rt-row">
-        <span class="sheet-rt-italics">{{attack_stat}}</span>
-      </div>
-      {{/^attack_type}}
       {{#spell_cost}}
       <div class="sheet-rt-row">
         <span class="sheet-rt-label">Mana Cost:</span>
