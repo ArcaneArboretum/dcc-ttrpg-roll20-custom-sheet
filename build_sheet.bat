@@ -1,6 +1,6 @@
 @echo off
 setlocal
-rem Runs build_sheet.py from this folder, so it works from a double-click or any prompt.
+rem Runs build_sheet.py from this folder, so it works from a double-click or any command prompt.
 rem Add "nopause" as an argument (build.bat nopause) to skip the final "press any key".
 
 cd /d "%~dp0"

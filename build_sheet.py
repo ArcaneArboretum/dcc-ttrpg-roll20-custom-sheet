@@ -18,9 +18,13 @@ What it does:
   1. Reads every .js file directly inside scripts/ (alphabetical order, so name
      them 01_xxx.js, 02_xxx.js ... if order matters) and overwrites scripts.html with
          <!-- SHEET WORKERS -->
-         <script type="text/worker"> a script </script>
-         <script type="text/worker"> next script </script>
-         ...
+         <script type="text/worker"> 
+         script 1
+         script 2
+         script 3
+         etc...
+         </script>
+         
   2. Joins sheet.html + roll_template.html + scripts.html into sheet_compiled.html.
 
 All scripts go into separate <script type="text/worker"> tag so they do not share a scope,
@@ -40,13 +44,7 @@ SCRIPTS_HTML = BASE_DIR / "scripts.html"
 OUTPUT_HTML = BASE_DIR / "sheet_compiled.html"
  
 HEADER_COMMENT = "<!-- SHEET WORKERS -->"
- 
-# True: each file is wrapped in (function () { ... })(); so its names stay private to it.
-# False: files are pasted in as-is and share one scope (a duplicate const/let name then
-# becomes a syntax error that stops ALL scripts from loading).
-ISOLATE_SCRIPTS = False
- 
- 
+
 def read_text(path: Path) -> str:
     # utf-8-sig strips a BOM if an editor added one; universal newlines turn CRLF into LF
     with open(path, "r", encoding="utf-8-sig") as f:
@@ -65,6 +63,10 @@ def escape_for_script_tag(js: str, name: str) -> str:
     - "</script" would end the tag early, so it becomes "<\\/script". In a string, regex
       or comment that is the same text to JavaScript, so behaviour doesn't change.
     - "<!--" can confuse the HTML parser inside a script, so it becomes "<\\!--".
+    - there are probably other html / javascript issues that might exist that I haven't covered here,
+        if they come up while compiling my scripts then I will include them here, but so far I haven't run in to any.
+    
+    I try to avoid even these 2 in all of my scripts just for simplicities sake, but these are probably the biggest 2 I could think of.
     """
     js, n_close = re.subn(r"</(?=script)", r"<\\/", js, flags=re.IGNORECASE)
     js, n_comment = re.subn(r"<!--", r"<\\!--", js)
@@ -89,10 +91,6 @@ def build_scripts_html() -> str:
     for path in js_files:
         print(f"  + {SCRIPTS_DIR.name}/{path.name}")
         body = escape_for_script_tag(read_text(path), path.name).strip("\n")
-        if ISOLATE_SCRIPTS:
-            # the closing line is on its own line so a trailing // comment in the file can't swallow it
-            body = f"(function () {{\n{body}\n}})();"
-        chunks.append(f"// ===== {path.name} =====\n{body}")
  
     return (
         HEADER_COMMENT + "\n"
