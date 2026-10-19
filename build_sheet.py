@@ -91,6 +91,7 @@ def build_scripts_html() -> str:
     for path in js_files:
         print(f"  + {SCRIPTS_DIR.name}/{path.name}")
         body = escape_for_script_tag(read_text(path), path.name).strip("\n")
+        chunks.append(f"// ===== {path.name} =====\n{body}")
  
     return (
         HEADER_COMMENT + "\n"
