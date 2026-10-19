@@ -90,7 +90,8 @@ No AI was knowingly used to create this sheet. I say knowingly because I recogni
      
 ## Known Issues
 * The External Buffs and Debuffs rows do not expand properly when the sheet is made wider. The instances of buffs / debuffs in the fieldset do not lineup with the headers when these sections are expanded.
-* The intervene roll is not currently displaying the roll results in the chat correctly.
+* The intervene roll is not currently displaying the roll results in the chat correctly.\
+* GMC Emblems (Player Killer Skulls, Boss Stars, Hunter Daggers) reset upon opening the sheet. The cause of this issue is also known: a script to auto-calculate emblems is running for the player-sheet version to read kills from the important kills tab to translate into emblems, but that is erroneously triggering on the gmc-sheet version of the sheet.
 
 ## Planned Features (TBD)
 * Add a setting to remove the rainbow background from the Dying box for better accessibility.
